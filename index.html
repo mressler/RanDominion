@@ -1,0 +1,182 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Dominion Kingdom Generator</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="jquery.mobile.css" /> 
+	<link rel="stylesheet" href="dominion.css" />
+	<script src="jquery.js"></script>
+	<script src="jquery.mobile.js"></script>
+	<script src="dominionCards.js"></script>
+	<script src="jquery.cookie.js"></script>
+</head> 
+<body> 
+
+<script>
+//Listen for any attempts to call changePage().
+$(document).bind( "pagebeforechange", function( e, data ) {
+
+	// We only want to handle changePage() calls where the caller is
+	// asking us to load a page by URL.
+	if ( typeof data.toPage === "string" ) {
+
+		// We are being asked to load a page by URL, but we only
+		// want to handle URLs that request the data for a specific
+		// category.
+		var u = $.mobile.path.parseUrl( data.toPage );
+		var random = /^#random/;
+
+		if ( u.hash.search(random) !== -1 ) {
+			generateRandom( u, data.options );
+
+			e.preventDefault();
+		}
+		
+	}
+});
+$( '#config' ).live( 'pagecreate', setConfigData );
+
+function setConfigData() {
+	for (var i in sets) {
+		var id = "set-" + i;
+		var hasSet = $.cookie(id) != undefined;
+		if (hasSet) {
+			$( "#" + id).attr('checked', 'checked');
+		} else {
+			$( "#" + id).removeAttr('checked');
+		}
+	}
+
+	var kingdomSize = $.cookie("kingdomSize") || 10;
+	$("#kingdomSize-" + kingdomSize).attr("checked", "checked");
+	
+	var orderBy = $.cookie("orderBy") || "alphabetical";
+	$("#orderBy-" + orderBy).attr("checked", "checked");
+
+	$(".persistChecked").change(function (e) {
+		var isChecked = this.checked;
+		$.cookie($(this).attr("id"), isChecked ? "true" : null);
+	});
+	
+	$(".persistValue").bind("change", function (e) {
+		$.cookie($(this).attr("name"), $(this).val());
+	});
+}
+
+function generateRandom( urlObj, options ) {
+	var $page = $( "#random" );
+	var $content = $page.children( ":jqmData(role=content)" );
+
+	$content.html("<p>It works!</p>");
+
+	$page.page();
+
+	// Now call changePage() and tell it to switch to
+	// the page we just modified.
+	$.mobile.changePage( $page, options );
+}
+</script>
+
+<div data-role="page" id="random">
+
+	<div data-role="header">
+		<h1>Random</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<p>Hello world</p>		
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">		
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#random" data-icon="grid" class="ui-btn-active">Random</a></li>
+				<li><a href="#" data-icon="star">Recommended</a></li>
+				<li><a href="#config" data-icon="gear">Config</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="config">
+
+	<div data-role="header">
+		<h1>Configuration</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<div data-role='fieldcontain'>
+			<fieldset data-role='controlgroup' id='setContainer'>
+				<legend>Which sets do you own?</legend>
+				<label for='set-1'>Basic</label>
+				<input type='checkbox' id='set-1' class='persistChecked' />
+				
+				<label for='set-2'>Promo</label>
+				<input type='checkbox' id='set-2' class='persistChecked' />
+				
+				<label for='set-3'>Intrigue</label>
+				<input type='checkbox' id='set-3' class='persistChecked' />
+				
+				<label for='set-4'>Seaside</label>
+				<input type='checkbox' id='set-4' class='persistChecked' />
+				
+				<label for='set-5'>Alchemy</label>
+				<input type='checkbox' id='set-5' class='persistChecked' />
+				
+				<label for='set-6'>Prosperity</label>
+				<input type='checkbox' id='set-6' class='persistChecked' />
+				
+				<label for='set-7'>Cornucopia</label>
+				<input type='checkbox' id='set-7' class='persistChecked' />
+				
+				<label for='set-8'>Hinterlands</label>
+				<input type='checkbox' id='set-8' class='persistChecked' />
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<legend>Generate what size kingdom?</legend>
+	     		<label for="kingdomSize-10">10</label>
+				<input type="radio" name="kingdomSize" id="kingdomSize-10" value="10" checked="checked" class='persistValue'/>
+				
+	     		<label for="kingdomSize-11">11</label>
+				<input type="radio" name="kingdomSize" id="kingdomSize-11" value="11" class='persistValue' />
+				
+	     		<label for="kingdomSize-12">12</label>
+				<input type="radio" name="kingdomSize" id="kingdomSize-12" value="12" class='persistValue' />
+				
+	     		<label for="kingdomSize-13">13</label>
+				<input type="radio" name="kingdomSize" id="kingdomSize-13" value="13" class='persistValue' />
+				
+	     		<label for="kingdomSize-14">14</label>
+				<input type="radio" name="kingdomSize" id="kingdomSize-14" value="14" class='persistValue' />
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<legend>Order by?</legend>
+	     		<label for="orderBy-alphabetical">Alphabetical</label>
+				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='persistValue' />
+				
+	     		<label for="orderBy-cost">Cost</label>
+				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='persistValue' />
+			</fieldset>
+		</div>
+		
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">		
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#random" data-icon="grid">Random</a></li>
+				<li><a href="#recommended" data-icon="star">Recommended</a></li>
+				<li><a href="#config" data-icon="gear" class="ui-btn-active">Config</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+</body>
+</html>
