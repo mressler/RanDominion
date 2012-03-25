@@ -66,6 +66,34 @@ function cardAllowed(someCard) {
 	return ($.cookie("set-" + someCard.setId) != undefined) || ((someCard.setId == 1) && ($.cookie("set-1") == undefined));
 }
 
+function cardAlreadySelected(selectedCard, allSelectedCards) {
+	for (var i in allSelectedCards) {
+		if (allSelectedCards[i].name == selectedCard.name) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function sortAlphabetically(cardOne, cardTwo) {
+	if (cardOne.name < cardTwo.name) {
+		return -1;
+	} else if (cardTwo.name < cardOne.name) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function sortByCost(cardOne, cardTwo) {
+	return cardOne.cost - cardTwo.cost;
+}
+
+function sortByExpansion(cardOne, cardTwo) {
+	return cardOne.setId - cardTwo.setId;
+}
+
 function generateRandom( urlObj, options ) {
 	var $page = $( "#random" );
 	var $content = $page.children( ":jqmData(role=content)" );
@@ -75,15 +103,25 @@ function generateRandom( urlObj, options ) {
 	do {
 		var selectedCard = cards[Math.floor(Math.random() * cards.length)];
 		
-		if ( cardAllowed(selectedCard) ) {
+		if ( cardAllowed(selectedCard) && !cardAlreadySelected(selectedCard, selectedCards) ) {
 			selectedCards.push(selectedCard);
 		}
 	} while (selectedCards.length < numCards); 
 
+	selectedCards.sort(sortByCost);
+	selectedCards.sort(sortAlphabetically);
+	selectedCards.sort(sortByExpansion);
+	
 	var markup = "<ul data-role='listview' data-inset='true'>";
 
+	var currentSetId = undefined;
 	for (var i in selectedCards) {
-		markup += "<li>" + selectedCards[i].name + "</li>";
+		var card = selectedCards[i];
+		if (card.setId != currentSetId) {
+			currentSetId = card.setId;
+			markup += "<li data-role='list-divider'>" + sets[currentSetId].name + "</li>";
+		}
+		markup += "<li>" + card.name + "<span class='ui-li-count'>" + card.cost + "</span></li>";
 	}
 
 	markup += "</ul>";
