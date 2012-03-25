@@ -449,54 +449,6 @@ var cards = [
 		actions : 1,
 		description : "Name a card. Reveal the top card of your deck. If it’s the named card, put it into your hand.",
 	},
-	{
-		name : "",
-		setId : 4,
-		cost : 3,
-		description : "",
-	},
-	{
-		name : "",
-		setId : 4,
-		cost : 3,
-		description : "",
-	},
-	{
-		name : "",
-		setId : 4,
-		cost : 3,
-		description : "",
-	},
-	{
-		name : "",
-		setId : 4,
-		cost : 3,
-		description : "",
-	},
-	{
-		name : "",
-		setId : 4,
-		cost : 3,
-		description : "",
-	},
-	{
-		name : "",
-		setId : 4,
-		cost : 3,
-		description : "",
-	},
-	{
-		name : "",
-		setId : 4,
-		cost : 3,
-		description : "",
-	},
-	{
-		name : "",
-		setId : 4,
-		cost : 3,
-		description : "",
-	},
 ];
 
 /*

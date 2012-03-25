@@ -28,10 +28,9 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 
 		if ( u.hash.search(random) !== -1 ) {
 			generateRandom( u, data.options );
-
+			
 			e.preventDefault();
 		}
-		
 	}
 });
 $( '#config' ).live( 'pagecreate', setConfigData );
@@ -63,14 +62,41 @@ function setConfigData() {
 	});
 }
 
+function cardAllowed(someCard) {
+	return ($.cookie("set-" + someCard.setId) != undefined) || ((someCard.setId == 1) && ($.cookie("set-1") == undefined));
+}
+
 function generateRandom( urlObj, options ) {
 	var $page = $( "#random" );
 	var $content = $page.children( ":jqmData(role=content)" );
 
-	$content.html("<p>It works!</p>");
+	var numCards = $.cookie("kingdomSize") || 10;
+	var selectedCards = [];
+	do {
+		var selectedCard = cards[Math.floor(Math.random() * cards.length)];
+		
+		if ( cardAllowed(selectedCard) ) {
+			selectedCards.push(selectedCard);
+		}
+	} while (selectedCards.length < numCards); 
+
+	var markup = "<ul data-role='listview' data-inset='true'>";
+
+	for (var i in selectedCards) {
+		markup += "<li>" + selectedCards[i].name + "</li>";
+	}
+
+	markup += "</ul>";
+	
+	$content.html(markup);
+	
+	// Enhance the listview we just injected.
+	$content.find( ":jqmData(role=listview)" ).listview();
 
 	$page.page();
 
+	options.dataUrl = urlObj.href;
+	
 	// Now call changePage() and tell it to switch to
 	// the page we just modified.
 	$.mobile.changePage( $page, options );
