@@ -829,7 +829,7 @@ var cards = [
 		name : "Forge",
 		setId : 6,
 		isAction : true,
-		cost : ,
+		cost : 7,
 		description : "Trash any number of cards from your hand. Gain a card with cost exactly equal to the total cost in Coins of the trashed cards.",
 	},
 	{
