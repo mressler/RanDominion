@@ -449,80 +449,548 @@ var cards = [
 		actions : 1,
 		description : "Name a card. Reveal the top card of your deck. If it’s the named card, put it into your hand.",
 	},
+	{
+		name : "Ambassador",
+		setId : 4,
+		isAction : true,
+		isAttack : true,
+		cost : 3,
+		description : "Reveal a card from your hand. Return up to 2 copies of it from your hand to the Supply. Then each other player gains a copy of it.",
+	},
+	{
+		name : "Bazaar",
+		setId : 4,
+		isAction : true,
+		cost : 5,
+		cards : 1,
+		actions : 2,
+		coin : 1,
+		description : "",
+	},
+	{
+		name : "Caravan",
+		setId : 4,
+		isAction : true,
+		isDuration : true,
+		cost : 4,
+		cards : 1,
+		actions : 1,
+		description : "At the start of your next turn, +1 Card.",
+	},
+	{
+		name : "Cutpurse",
+		setId : 4,
+		isAction : true,
+		isAttack : true,
+		cost : 4,
+		coins : 2,
+		description : "Each other player discards a Copper card (or reveals a hand with no Copper).",
+	},
+	{
+		name : "Embargo",
+		setId : 4,
+		isAction : true,
+		cost : 2,
+		coins : 2,
+		description : "Trash this card. Put an Embargo token on top of a Supply pile. When a player buys a card, he gains a Curse card per Embargo token on that pile.",
+	},
+	{
+		name : "Explorer",
+		setId : 4,
+		isAction : true,
+		cost : 5,
+		description : "You may reveal a Province card from your hand. If you do, gain a Gold card, putting it into your hand. Otherwise, gain a Silver card, putting it into your hand.",
+	},
+	{
+		name : "Fishing Village",
+		setId : 4,
+		isAction : true,
+		isDuration : true,
+		cost : 3,
+		actions : 2,
+		coins : 1,
+		description : "At the start of your next turn: +1 Action, +1 Coin.",
+	},
+	{
+		name : "Ghost Ship",
+		setId : 4,
+		isAction : true,
+		isAttack : true,
+		cost : 5,
+		cards : 2,
+		description : "Each other player with 4 or more cards in hand puts cards from his hand on top of his deck until he has 3 cards in his hand.",
+	},
+	{
+		name : "Haven",
+		setId : 4,
+		isAction : true,
+		isDuration : true,
+		cost : 2,
+		cards : 1,
+		actions : 1,
+		description : "Set aside a card from your hand face down. At the start of your next turn, put it into your hand.",
+	},
+	{
+		name : "Island",
+		setId : 4,
+		isAction : true,
+		isVictory : true,
+		cost : 4,
+		victoryPoints : 2,
+		description : "Set aside this and another card from your hand. Return them to your deck at the end of the game.",
+	},
+	{
+		name : "Lighthouse",
+		setId : 4,
+		isAction : true,
+		isDuration : true,
+		cost : 2,
+		actions : 1,
+		description : "Now and at the start of your next turn: +1 Coin. While this is in play, when another player plays an Attack card, it doesn’t affect you.",
+	},
+	{
+		name : "Lookout",
+		setId : 4,
+		isAction : true,
+		cost : 3,
+		actions : 1,
+		description : "Look at the top 3 cards of your deck. Trash one of them. Discard one of them. Put the other one on top of your deck.",
+	},
+	{
+		name : "Merchant Ship",
+		setId : 4,
+		isAction : true,
+		isDuration : true,
+		cost : 5,
+		coins : 2,
+		description : "Now and at the start of your next turn: +2 Coins.",
+	},
+	{
+		name : "Native Village",
+		setId : 4,
+		isAction : true,
+		cost : 2,
+		actions : 2,
+		description : "Choose one: Set aside the top card of your deck face down on your Native Village mat, or put all the cards from your mat into your hand. You may look at the cards on your mat at any time, return them to your deck at the end of the game.",
+	},
+	{
+		name : "Navigator",
+		setId : 4,
+		isAction : true,
+		cost : 4,
+		coins : 2,
+		description : "Look at the top 5 cards of your deck. Either discard all of them, or put them back on top of your deck in any order.",
+	},
+	{
+		name : "Outpost",
+		setId : 4,
+		isAction : true,
+		isDuration : true,
+		cost : 5,
+		description : "You only draw 3 cards (instead of 5) in this turn’s Clean-up phase. Take an extra turn after this one. This can’t cause you to take more than two consecutive turns.",
+	},
+	{
+		name : "Pearl Diver",
+		setId : 4,
+		isAction : true,
+		cost : 2,
+		cards : 1,
+		actions : 1,
+		description : "Look at the bottom card of your deck. You may put it on top.",
+	},
+	{
+		name : "Pirate Ship",
+		setId : 4,
+		isAction : true,
+		isAttack : true,
+		cost : 4,
+		description : "Choose one: Each other player reveals the top 2 cards of his deck, trashes a revealed Treasure that you choose, discards the rest, and if anyone trashed a Treasure you take a Coin token, or, +1 Coin per Coin token you’ve taken with Pirate Ships this game.",
+	},
+	{
+		name : "Salvager",
+		setId : 4,
+		isAction : true,
+		cost : 4,
+		buys : 1,
+		description : "Trash a card from your hand. + Coin equal to its cost.",
+	},
+	{
+		name : "Sea Hag",
+		setId : 4,
+		isAction : true,
+		isAttack : true,
+		cost : 4,
+		description : "Each other player discards the top card of his deck, then gains a Curse card, putting it on top of his deck.",
+	},
+	{
+		name : "Smugglers",
+		setId : 4,
+		isAction : true,
+		cost : 3,
+		description : "Gain a copy of a card costing up to 6 Coins that the player to your right gained on his last turn.",
+	},
+	{
+		name : "Tactician",
+		setId : 4,
+		isAction : true,
+		isDuration : true,
+		cost : 5,
+		description : "Discard your hand. If you discarded any cards this way, then at the start of your next turn, +5 Cards, +1 Buy, and +1 Action.",
+	},
+	{
+		name : "Treasure Map",
+		setId : 4,
+		isAction : true,
+		cost : 4,
+		description : "Trash this and another copy of Treasure Map from your hand. If you do trash two Treasure Maps, gain 4 Gold cards, putting them on top of your deck.",
+	},
+	{
+		name : "Treasury",
+		setId : 4,
+		isAction : true,
+		cost : 5,
+		cards : 1,
+		actions : 1,
+		coins : 1,
+		description : "When you discard this from play, if you didn’t buy a Victory card this turn, you may put this on top of your deck.",
+	},
+	{
+		name : "Warehouse",
+		setId : 4,
+		isAction : true,
+		cost : 3,
+		cards : 3,
+		actions : 1,
+		description : "Discard 3 cards.",
+	},
+	{
+		name : "Wharf",
+		setId : 4,
+		isAction : true,
+		isDuration : true,
+		cost : 5,
+		cards : 2,
+		buys : 1,
+		description : "Now and at the start of your next turn: +2 Cards, +1 Buy.",
+	},
+	{
+		name : "Alchemist",
+		setId : 5,
+		isAction : true,
+		cost : 3,
+		potion : true,
+		cards : 2,
+		actions : 1,
+		description : "When you discard this from play, you may put this on top of your deck if you have a Potion in play.",
+	},
+	{
+		name : "Apothecary",
+		setId : 5,
+		isAction : true,
+		cost : 2,
+		potion : true,
+		cards : 1,
+		actions : 1,
+		description : "Reveal the top 4 cards of your deck. Put the revealed Coppers and Potions into your hand. Put the other cards back on top of your deck in any order.",
+	},
+	{
+		name : "Apprentice",
+		setId : 5,
+		isAction : true,
+		cost : 5,
+		actions : 1,
+		description : "Trash a card from your hand. +1 Card per Coin it costs. +2 Cards if it has Potion in its cost.",
+	},
+	{
+		name : "Familiar",
+		setId : 5,
+		isAction : true,
+		isAttack : true,
+		cost : 3,
+		potion : true,
+		cards : 1,
+		actions : 1,
+		description : "Each other player gains a Curse.",
+	},
+	{
+		name : "Golem",
+		setId : 5,
+		isAction : true,
+		cost : 4,
+		potion : true,
+		description : "Reveal cards from your deck until you reveal 2 Action cards other than Golem cards. Discard the other cards, then play the Action cards in either order.",
+	},
+	{
+		name : "Herbalist",
+		setId : 5,
+		isAction : true,
+		cost : 2,
+		coins : 1,
+		buys : 1,
+		description : "When you discard this from play, you may put one of your Treasures from play on top of your deck.",
+	},
+	{
+		name : "Philosopher's Stone",
+		setId : 5,
+		isTreasure : true,
+		cost : 3,
+		potion : true,
+		description : "When you play this, count your deck and discard pile. Worth 1 Coin per 5 cards total between them (rounded down).",
+	},
+	{
+		name : "Possession",
+		setId : 5,
+		isAction : true,
+		cost : 6,
+		potion : true,
+		description : "The player to your left takes an extra turn after this one, in which you can see all cards he can and make all decisions for him. Any cards he would gain on that turn, you gain instead, any cards of his that are trashed are set aside and returned to his deck.",
+	},
+	{
+		name : "Scrying Pool",
+		setId : 5,
+		isAction : true,
+		cost : 2,
+		potion : true,
+		actions : 1,
+		description : "Each player (including you) reveals the top card of his deck and either discards it or puts it back, your choice. Then reveal cards from the top of your deck until revealing one that isn‘t an Action. Put all of your revealed cards into your hand.",
+	},
+	{
+		name : "Transmute",
+		setId : 5,
+		isAction : true,
+		cost : 1,
+		potion : true,
+		description : "Trash a card from your hand. If it is a…  Action card, gain a Duchy. Treasure card, gain a Transmute. Victory card, gain a Gold.",
+	},
+	{
+		name : "University",
+		setId : 5,
+		isAction : true,
+		cost : 2,
+		potion : true,
+		actions : 2,
+		description : "You may gain an Action card costing up to 5 Coins.",
+	},
+	{
+		name : "Vineyard",
+		setId : 5,
+		isVictory : true,
+		cost : 1,
+		potion : true,
+		description : "Worth 1 VP for every 3 Action cards in your deck (rounded down).",
+	},
+	{
+		name : "Bank",
+		setId : 6,
+		isTreasure : true,
+		cost : 7,
+		description : "When you play this, it’s worth 1 Coin per Treasure card you have in play (counting this).",
+	},
+	{
+		name : "Bishop",
+		setId : 6,
+		isAction : true,
+		cost : 4,
+		description : "",
+	},
+	{
+		name : "City",
+		setId : 6,
+		isAction : true,
+		cost : 5,
+		cards : 1,
+		actions : 2,
+		description : "If there are one or more empty Supply piles, +1 Card. If there are two or more, +1 Coin and +1 Buy.",
+	},
+	{
+		name : "Contraband",
+		setId : 6,
+		isTreasure : true,
+		cost : 5,
+		coins : 3,
+		buys : 1,
+		description : "When you play this, the player to your left names a card. You can’t buy that card this turn.",
+	},
+	{
+		name : "Counting House",
+		setId : 6,
+		isAction : true,
+		cost : 5,
+		description : "Look through your discard pile, reveal any number of Copper cards from it, and put them into your hand.",
+	},
+	{
+		name : "Expand",
+		setId : 6,
+		isAction : true,
+		cost : 7,
+		description : "Trash a card from your hand. Gain a card costing up to 3 Coins more than the trashed card.",
+	},
+	{
+		name : "Forge",
+		setId : 6,
+		isAction : true,
+		cost : ,
+		description : "Trash any number of cards from your hand. Gain a card with cost exactly equal to the total cost in Coins of the trashed cards.",
+	},
+	{
+		name : "Goons",
+		setId : 6,
+		isAction : true,
+		isAttack : true,
+		cost : 6,
+		coins : 2,
+		buys : 1,
+		description : "Each other player discards down to 3 cards in hand. While this is in play, when you buy a card, +1 VP.",
+	},
+	{
+		name : "Grand Market",
+		setId : 6,
+		isAction : true,
+		cost : 6,
+		cards : 1,
+		actions : 1,
+		coins : 2,
+		buys : 1,
+		description : "You can’t buy this if you have any Copper in play.",
+	},
+	{
+		name : "Hoard",
+		setId : 6,
+		isTreasure : true,
+		cost : 6,
+		coins : 2,
+		description : "While this is in play, when you buy a Victory card, gain a Gold.",
+	},
+	{
+		name : "King's Court",
+		setId : 6,
+		isAction : true,
+		cost : 7,
+		description : "You may choose an Action card in your hand. Play it three times.",
+	},
+	{
+		name : "Loan",
+		setId : 6,
+		isTreasure : true,
+		cost : 3,
+		coins : 1,
+		description : "When you play this, reveal cards from your deck until you reveal a Treasure. Discard it or trash it. Discard the other cards.",
+	},
+	{
+		name : "Mint",
+		setId : 6,
+		isAction : true,
+		cost : 5,
+		description : "You may reveal a Treasure card from your hand. Gain a copy of it. then you buy this, trash all Treasures you have in play.",
+	},
+	{
+		name : "Monument",
+		setId : 6,
+		isAction : true,
+		cost : 4,
+		coins : 2,
+		victoryPoints : 1,
+		description : "",
+	},
+	{
+		name : "Mountebank",
+		setId : 6,
+		isAction : true,
+		isAttack : true,
+		cost : 5,
+		coins : 2,
+		description : "Each other player may discard a Curse. If he doesn’t, he gains a Curse and a Copper.",
+	},
+	{
+		name : "Peddler",
+		setId : 6,
+		isAction : true,
+		cost : 8,
+		cards : 1,
+		actions : 1,
+		coins : 1,
+		description : "During your Buy phase, this costs 2 Coins less per Action card you have in play, but not less than 0 Coin.",
+	},
+	{
+		name : "Quarry",
+		setId : 6,
+		isTreasure : true,
+		cost : 4,
+		coins : 1,
+		description : "While this is in play, Action cards cost 2 Coins less, but not less than 0 Coin.",
+	},
+	{
+		name : "Rabble",
+		setId : 6,
+		isAction : true,
+		isAttack : true,
+		cost : 5,
+		cards : 3,
+		description : "Each other player reveals the top 3 cards of his deck, discards the revealed Actions and Treasures, and puts the rest back on top in any order he chooses.",
+	},
+	{
+		name : "Royal Seal",
+		setId : 6,
+		isTreasure : true,
+		cost : 5,
+		coins : 2,
+		description : "While this is in play, when you gain a card, you may put that card on top of your deck.",
+	},
+	{
+		name : "Talisman",
+		setId : 6,
+		isTreasure : true,
+		cost : 4,
+		coins : 1,
+		description : "While this is in play, when you buy a card costing 4 Coins or less that is not a Victory card, gain a copy of it.",
+	},
+	{
+		name : "Trade Route",
+		setId : 6,
+		isAction : true,
+		cost : 3,
+		buys : 1,
+		description : "+1 Coin per token on the Trade Route mat. Trash a card from your hand. [Setup]: Put a token on each Victory card Supply pile. When a card is gained from that pile, move the token to the Trade Route mat.",
+	},
+	{
+		name : "Vault",
+		setId : 6,
+		isAction : true,
+		cost : 5,
+		cards : 2,
+		description : "Discard any number of cards. +1 Coin per card discarded. Each other player may discard 2 cards. If he does, he draws a card.",
+	},
+	{
+		name : "Venture",
+		setId : 6,
+		isTreasure : true,
+		cost : 5,
+		coins : 1,
+		description : "When you play this, reveal cards from your deck until you reveal a Treasure. Discard the other cards. Play that Treasure.",
+	},
+	{
+		name : "Watchtower",
+		setId : 6,
+		isAction : true,
+		isReaction : true,
+		cost : 3,
+		description : "[Action]: Draw until you have 6 cards in hand. [Reaction]: When you gain a card, you may reveal this from your hand. If you do, either trash that card, or put it on top of your deck.",
+	},
+	{
+		name : "Worker's Village",
+		setId : 6,
+		isAction : true,
+		cost : 4,
+		cards : 1,
+		actions : 2,
+		buys : 1,
+		description : "",
+	},
 ];
 
 /*
-Ambassador	Seaside	Action	Attack		3						Reveal a card from your hand. Return up to 2 copies of it from your hand to the Supply. Then each other player gains a copy of it.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Bazaar	Seaside	Action			5	1	2	1			N/A	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Caravan	Seaside	Action	Duration		4	1	1				At the start of your next turn, +1 Card.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Cutpurse	Seaside	Action	Attack		4			2			Each other player discards a Copper card (or reveals a hand with no Copper).	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Embargo	Seaside	Action			2			2			Trash this card. Put an Embargo token on top of a Supply pile. When a player buys a card, he gains a Curse card per Embargo token on that pile.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Explorer	Seaside	Action			5						You may reveal a Province card from your hand. If you do, gain a Gold card, putting it into your hand. Otherwise, gain a Silver card, putting it into your hand.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Fishing Village	Seaside	Action	Duration		3		2	1			At the start of your next turn: +1 Action, +1 Coin.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Ghost Ship	Seaside	Action	Attack		5	2					Each other player with 4 or more cards in hand puts cards from his hand on top of his deck until he has 3 cards in his hand.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Haven	Seaside	Action	Duration		2	1	1				Set aside a card from your hand face down. At the start of your next turn, put it into your hand.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Island	Seaside	Action	Victory		4					2	Set aside this and another card from your hand. Return them to your deck at the end of the game.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Lighthouse	Seaside	Action	Duration		2		1				Now and at the start of your next turn: +1 Coin. While this is in play, when another player plays an Attack card, it doesn’t affect you.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Lookout	Seaside	Action			3		1				Look at the top 3 cards of your deck. Trash one of them. Discard one of them. Put the other one on top of your deck.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Merchant Ship	Seaside	Action	Duration		5			2			Now and at the start of your next turn: +2 Coins.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Native Village	Seaside	Action			2		2				Choose one: Set aside the top card of your deck face down on your Native Village mat, or put all the cards from your mat into your hand. You may look at the cards on your mat at any time, return them to your deck at the end of the game.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Navigator	Seaside	Action			4			2			Look at the top 5 cards of your deck. Either discard all of them, or put them back on top of your deck in any order.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Outpost	Seaside	Action	Duration		5						You only draw 3 cards (instead of 5) in this turn’s Clean-up phase. Take an extra turn after this one. This can’t cause you to take more than two consecutive turns.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Pearl Diver	Seaside	Action			2	1	1				Look at the bottom card of your deck. You may put it on top.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Pirate Ship	Seaside	Action	Attack		4						Choose one: Each other player reveals the top 2 cards of his deck, trashes a revealed Treasure that you choose, discards the rest, and if anyone trashed a Treasure you take a Coin token, or, +1 Coin per Coin token you’ve taken with Pirate Ships this game.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Salvager	Seaside	Action			4				1		Trash a card from your hand. + Coin equal to its cost.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Sea Hag	Seaside	Action	Attack		4						Each other player discards the top card of his deck, then gains a Curse card, putting it on top of his deck.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Smugglers	Seaside	Action			3						Gain a copy of a card costing up to 6 Coins that the player to your right gained on his last turn.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Tactician	Seaside	Action	Duration		5						Discard your hand. If you discarded any cards this way, then at the start of your next turn, +5 Cards, +1 Buy, and +1 Action.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Treasure Map	Seaside	Action			4						Trash this and another copy of Treasure Map from your hand. If you do trash two Treasure Maps, gain 4 Gold cards, putting them on top of your deck.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Treasury	Seaside	Action			5	1	1	1			When you discard this from play, if you didn’t buy a Victory card this turn, you may put this on top of your deck.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Warehouse	Seaside	Action			3	3	1				Discard 3 cards.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Wharf	Seaside	Action	Duration		5	2			1		Now and at the start of your next turn: +2 Cards, +1 Buy.	Oct-09																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Stash	Promo	Treasure			5			2			When you shuffle, you may put this anywhere in your deck.	Feb-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Alchemist	Alchemy	Action			3+P	2	1				When you discard this from play, you may put this on top of your deck if you have a Potion in play.	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Apothecary	Alchemy	Action			2+P	1	1				Reveal the top 4 cards of your deck. Put the revealed Coppers and Potions into your hand. Put the other cards back on top of your deck in any order.	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Apprentice	Alchemy	Action			5		1				Trash a card from your hand. +1 Card per Coin it costs. +2 Cards if it has Potion in its cost.	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Familiar	Alchemy	Action	Attack		3+P	1	1				Each other player gains a Curse.	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Golem	Alchemy	Action			4+P						Reveal cards from your deck until you reveal 2 Action cards other than Golem cards. Discard the other cards, then play the Action cards in either order.	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Herbalist	Alchemy	Action			2			1	1		When you discard this from play, you may put one of your Treasures from play on top of your deck.	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Philosopher's Stone	Alchemy	Treasure			3+P						When you play this, count your deck and discard pile. Worth 1 Coin per 5 cards total between them (rounded down).	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Possession	Alchemy	Action			6+P						The player to your left takes an extra turn after this one, in which you can see all cards he can and make all decisions for him. Any cards he would gain on that turn, you gain instead, any cards of his that are trashed are set aside and returned to his d	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Scrying Pool	Alchemy	Action			2+P		1				Each player (including you) reveals the top card of his deck and either discards it or puts it back, your choice. Then reveal cards from the top of your deck until revealing one that isn‘t an Action. Put all of your revealed cards into your hand.	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Transmute	Alchemy	Action			1+P						Trash a card from your hand. If it is a…  Action card, gain a Duchy. Treasure card, gain a Transmute. Victory card, gain a Gold.	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-University	Alchemy	Action			2+P		2				You may gain an Action card costing up to 5 Coins.	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Vineyard	Alchemy	Victory			1+P						Worth 1 VP for every 3 Action cards in your deck (rounded down).	May-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Bank	Prosperity	Treasure			7						When you play this, it’s worth 1 Coin per Treasure card you have in play (counting this).	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Bishop	Prosperity	Action			4			1		1	Trash a card from your hand. +VP equal to half its cost in Coins, rounded down. Each other player may trash a card from his hand.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-City	Prosperity	Action			5	1	2				If there are one or more empty Supply piles, +1 Card. If there are two or more, +1 Coin and +1 Buy.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Colony	Prosperity	Victory			11					10	N/A	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Contraband	Prosperity	Treasure 			5			3	1		When you play this, the player to your left names a card. You can’t buy that card this turn.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Counting House	Prosperity	Action			5						Look through your discard pile, reveal any number of Copper cards from it, and put them into your hand.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Expand	Prosperity	Action			7						Trash a card from your hand. Gain a card costing up to 3 Coins more than the trashed card.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Forge	Prosperity	Action			7						Trash any number of cards from your hand. Gain a card with cost exactly equal to the total cost in Coins of the trashed cards.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Goons	Prosperity	Action	Attack		6			2	1		Each other player discards down to 3 cards in hand. While this is in play, when you buy a card, +1 VP.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Grand Market	Prosperity	Action			6	1	1	2	1		You can’t buy this if you have any Copper in play.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Hoard	Prosperity	Treasure			6			2			While this is in play, when you buy a Victory card, gain a Gold.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-King's Court	Prosperity	Action			7						You may choose an Action card in your hand. Play it three times.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Loan	Prosperity	Treasure			3			1			When you play this, reveal cards from your deck until you reveal a Treasure. Discard it or trash it. Discard the other cards.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Mint	Prosperity	Action			5						You may reveal a Treasure card from your hand. Gain a copy of it. then you buy this, trash all Treasures you have in play.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Monument	Prosperity	Action			4			2		1	N/A	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Mountbank	Prosperity	Action	Attack		5			2			Each other player may discard a Curse. If he doesn’t, he gains a Curse and a Copper. 	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Peddler	Prosperity	Action			8	1	1	1			During your Buy phase, this costs 2 Coins less per Action card you have in play, but not less than 0 Coin.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Platinum	Prosperity	Treasure			9			5			N/A	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Quarry	Prosperity	Treasure			4			1			While this is in play, Action cards cost 2 Coins less, but not less than 0 Coin.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Rabble	Prosperity	Action	Attack		5	3					Each other player reveals the top 3 cards of his deck, discards the revealed Actions and Treasures, and puts the rest back on top in any order he chooses.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Royal Seal	Prosperity	Treasure			5			2			While this is in play, when you gain a card, you may put that card on top of your deck.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Talisman	Prosperity	Treasure			4						While this is in play, when you buy a card costing 4 Coins or less that is not a Victory card, gain a copy of it.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Trade Route	Prosperity	Action			3				1		+1 Coin per token on the Trade Route mat. Trash a card from your hand. [Setup]: Put a token on each Victory card Supply pile. When a card is gained from that pile, move the token to the Trade Route mat.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Vault	Prosperity	Action			5	2					Discard any number of cards. +1 Coin per card discarded. Each other player may discard 2 cards. If he does, he draws a card.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Venture	Prosperity	Treasure			5			1			When you play this, reveal cards from your deck until you reveal a Treasure. Discard the other cards. Play that Treasure.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Watchtower	Prosperity	Action	Reaction		3						[Action]: Draw until you have 6 cards in hand. [Reaction]: When you gain a card, you may reveal this from your hand. If you do, either trash that card, or put it on top of your deck.	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Worker's Village	Prosperity	Action			4	1	2		1		N/A	Oct-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Bag of Gold	Cornucopia	Action	Prize		0*		1				Gain a Gold, putting it on top of your deck. (This is not in the Supply)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Diadem	Cornucopia	Treasure	Prize		0*			2			When you play this, +1 Coin per unused Action you have (Action, not Action card). (This is not in the Supply)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Fairgrounds	Cornucopia	Victory			6						Worth 2 VP for every 5 differently named cards in your deck (rounded down).	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Farming Village	Cornucopia	Action			4		2				Reveal cards from the top of your deck until you reveal an Action or Treasure card. Put that card into your hand and discard the other cards.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Followers	Cornucopia	Action	Attack	Prize	0*						Gain an Estate. Each other player gains a Curse and discards down to 3 cards in hand. (This is not in the Supply.)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Fortune Teller	Cornucopia	Action	Attack		3			2			Each other player reveals cards from the top of his deck until he reveals a Victory or Curse card. He puts it on top and discards  the other revealed cards.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Hamlet	Cornucopia	Action			2	1	1				You may discard a card, if you do +1 Action. You may discard a card, if you do +1 Buy.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Harvest	Cornucopia	Action			5						Reveal the top 4 cards of your deck, then discard them. +1 Coin per differently named card revealed.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
@@ -531,12 +999,9 @@ Horse Traders	Cornucopia	Action	Reaction		4			3	1		[Action]: Discard 2 Cards. [R
 Hunting Party	Cornucopia	Action			5	1	1				Reveal your hand. Reveal cards from your deck until you reveal a card that isn’t a duplicate of one in your hand. Put it into your hand and discard the rest.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Jester	Cornucopia	Action	Attack		5			2			Each other player discards the top card of his deck. If it’s a Victory card he gains a Curse. Otherwise he gains a copy of the discarded card or you do, your choice.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Menagerie	Cornucopia	Action			3		1				Reveal your hand. If there are no duplicate cards in it, +3 Cards. Otherwise, +1 Card.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Princess	Cornucopia	Action	Prize		0*				1		While this is in play, cards cost 2 Coins less, but not less than 0 Coins. (This is not in the Supply.)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Remake	Cornucopia	Action			4						Do this twice: Trash a card from your hand then gain a card costing exactly 1 Coin more than the trashed card.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Tournament	Cornucopia	Action			4		1				Each player may reveal a Provence from his hand. If you do, discard it and gain a Prize (from the Prize pile) or a Duchy, putting it on top of your deck. If no one else does, +1 Card, +1 Coin.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Trusty Steed	Cornucopia	Action	Prize		0*						Choose two: +2 Cards; or +2 Actions; or +2 Coins; or gain 4 Silvers and put your deck into your discard pile.  (This is not in the Supply.)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Young Witch	Cornucopia	Action	Attack		4	2					Each other player may reveal a Bane card from his hand. If he doesn’t, he gains a Curse. [Set-up]: Add an extra Kingdom card pile costing 2 Coins or 3 Coins to the supply. Cards from that pile are Bane cards.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Walled Village	Promo	Action			4	1	2				At the start of Clean-up, if you have this and no other Action card in play, you may put this on top of your deck.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Border Village	Hinterlands	Action			6	1	2				When you gain this, gain a card costing less than this.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Cache	Hinterlands	Treasure			5			3			When you gain this, gain two Coppers.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Cartographer	Hinterlands	Action			5	1	1				Look at the top 4 cards of your deck. Discard any number of them. Put the rest back on top in any order.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
@@ -563,4 +1028,11 @@ Spice Merchant	Hinterlands	Action			4						You may trash a Treasure from your ha
 Stables	Hinterlands	Action			5						You may discard a Treasure. If you do, +3 Cards and +1 Action.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Trader	Hinterlands	Action	Reaction		4						[Action]: Trash a card from your hand. Gain a number of silvers equal to its cost in Coins. [Reaction]: When you would gain a card, you may reveal this from your hand. If you do, instead, gain a silver.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Tunnel	Hinterlands	Victory	Reaction		3					2	When you discard this other than during a Clean-up phase, you may reveal it. If you do, gain a Gold.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
+Stash	Promo	Treasure			5			2			When you shuffle, you may put this anywhere in your deck.	Feb-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
+Bag of Gold	Cornucopia	Action	Prize		0*		1				Gain a Gold, putting it on top of your deck. (This is not in the Supply)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
+Diadem	Cornucopia	Treasure	Prize		0*			2			When you play this, +1 Coin per unused Action you have (Action, not Action card). (This is not in the Supply)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
+Followers	Cornucopia	Action	Attack	Prize	0*						Gain an Estate. Each other player gains a Curse and discards down to 3 cards in hand. (This is not in the Supply.)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
+Princess	Cornucopia	Action	Prize		0*				1		While this is in play, cards cost 2 Coins less, but not less than 0 Coins. (This is not in the Supply.)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
+Trusty Steed	Cornucopia	Action	Prize		0*						Choose two: +2 Cards; or +2 Actions; or +2 Coins; or gain 4 Silvers and put your deck into your discard pile.  (This is not in the Supply.)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
+Walled Village	Promo	Action			4	1	2				At the start of Clean-up, if you have this and no other Action card in play, you may put this on top of your deck.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 */
