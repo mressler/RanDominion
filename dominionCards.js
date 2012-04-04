@@ -986,48 +986,331 @@ var cards = [
 		buys : 1,
 		description : "",
 	},
+	{
+		name : "Fairgrounds",
+		setId : 7,
+		isVictory : true,
+		cost : 6,
+		description : "Worth 2 VP for every 5 differently named cards in your deck (rounded down).",
+	},
+	{
+		name : "Farming Village",
+		setId : 7,
+		isAction : true,
+		cost : 4,
+		actions : 2,
+		description : "Reveal cards from the top of your deck until you reveal an Action or Treasure card. Put that card into your hand and discard the other cards.",
+	},
+	{
+		name : "Fortune Teller",
+		setId : 7,
+		isAction : true,
+		isAttack : true,
+		cost : 3,
+		cards : 2,
+		description : "Each other player reveals cards from the top of his deck until he reveals a Victory or Curse card. He puts it on top and discards  the other revealed cards.",
+	},
+	{
+		name : "Hamlet",
+		setId : 7,
+		isAction : true,
+		cost : 2,
+		cards : 1,
+		actions : 1,
+		description : "You may discard a card, if you do +1 Action. You may discard a card, if you do +1 Buy.",
+	},
+	{
+		name : "Harvest",
+		setId : 7,
+		isAction : true,
+		cost : 5,
+		description : "Reveal the top 4 cards of your deck, then discard them. +1 Coin per differently named card revealed.",
+	},
+	{
+		name : "Horn of Plenty",
+		setId : 7,
+		isTreasure : true,
+		cost : 5,
+		description : "When you play this, gain a card costing up to 1 Coin per differently named card you have in play, counting this. If it’s a Victory card, trash this.",
+	},
+	{
+		name : "Horse Traders",
+		setId : 7,
+		isAction : true,
+		isReaction : true,
+		cost : 4,
+		buys : 1,
+		coins : 3,
+		description : "[Action]: Discard 2 Cards. [Reaction]: When another player plays an Attack card, you may set this aside from your hand. If you do, then at the start of your next turn, +1 Card and return this to your hand.",
+	},
+	{
+		name : "Hunting Party",
+		setId : 7,
+		isAction : true,
+		cost : 5,
+		cards : 1,
+		actions : 1,
+		description : "Reveal your hand. Reveal cards from your deck until you reveal a card that isn’t a duplicate of one in your hand. Put it into your hand and discard the rest.",
+	},
+	{
+		name : "Jester",
+		setId : 7,
+		isAction : true,
+		isAttack : true,
+		cost : 5,
+		coins : 2,
+		description : "Each other player discards the top card of his deck. If it’s a Victory card he gains a Curse. Otherwise he gains a copy of the discarded card or you do, your choice.",
+	},
+	{
+		name : "Menagierie",
+		setId : 7,
+		isAction : true,
+		cost : 3,
+		actions : 1,
+		description : "Reveal your hand. If there are no duplicate cards in it, +3 Cards. Otherwise, +1 Card.",
+	},
+	{
+		name : "Remake",
+		setId : 7,
+		isAction : true,
+		cost : 4,
+		description : "Do this twice: Trash a card from your hand then gain a card costing exactly 1 Coin more than the trashed card.",
+	},
+	{
+		name : "Tournament",
+		setId : 7,
+		isAction : true,
+		cost : 4,
+		actions : 1,
+		description : "Each player may reveal a Provence from his hand. If you do, discard it and gain a Prize (from the Prize pile) or a Duchy, putting it on top of your deck. If no one else does, +1 Card, +1 Coin.",
+	},
+	{
+		name : "Young Witch",
+		setId : 7,
+		isAction : true,
+		isAttack : true,
+		cost : 4,
+		cards : 2,
+		description : "Each other player may reveal a Bane card from his hand. If he doesn’t, he gains a Curse. [Set-up]: Add an extra Kingdom card pile costing 2 Coins or 3 Coins to the supply. Cards from that pile are Bane cards.",
+	},
+	{
+		name : "Border Village",
+		setId : 8,
+		isAction : true,
+		cost : 6,
+		cards : 1,
+		action : 2,
+		description : "When you gain this, gain a card costing less than this.",
+	},
+	{
+		name : "Cache",
+		setId : 8,
+		isTreasure : true,
+		cost : 5,
+		coins : 3,
+		description : "When you gain this, gain two Coppers.",
+	},
+	{
+		name : "Cartographer",
+		setId : 8,
+		isAction : true,
+		cost : 5,
+		cards : 1,
+		actions : 1,
+		description : "Look at the top 4 cards of your deck. Discard any number of them. Put the rest back on top in any order.",
+	},
+	{
+		name : "Crossroads",
+		setId : 8,
+		isAction : true,
+		cost : 2,
+		description : "Reveal your hand. +1 Card per Victory card revealed. If this is the first time you played Crossroads this turn, +3 Actions.",
+	},
+	{
+		name : "Develop",
+		setId : 8,
+		isAction : true,
+		cost : 3,
+		description : "Trash a card from your hand. Gain a card costing exactly 1 Coin more than it and a card costing exactly 1 Coin less than it, in either order, putting them on top of your deck.",
+	},
+	{
+		name : "Duchess",
+		setId : 8,
+		isAction : true,
+		cost : 2,
+		coins : 2,
+		description : "Each player (including you) looks at the top card of his deck, and discards it or puts it back. In games using this, when you gain a Duchy, you may gain a Duchess.",
+	},
+	{
+		name : "Embassy",
+		setId : 8,
+		isAction : true,
+		cost : 5,
+		cards : 5,
+		description : "Discard 3 cards. When you gain this, each other player gains a Silver.",
+	},
+	{
+		name : "Farmland",
+		setId : 8,
+		isVictory : true,
+		cost : 6,
+		victoryPoints : 2,
+		description : "When you buy this, trash a card from your hand. Gain a card costing exactly 2 Coins more than the trashed card.",
+	},
+	{
+		name : "Fool's Gold",
+		setId : 8,
+		isTreasure : true,
+		isReaction : true,
+		cost : 2,
+		description : "[Treasure]: If this is the first time you played a Fool's Gold this turn, this is worth 1 Coin, otherwise it's worth 4 Coins. [Reaction]: When another player gains a Province, you may trash this from your hand. If you do, gain a Gold, putting it on your deck.",
+	},
+	{
+		name : "Haggler",
+		setId : 8,
+		isAction : true,
+		cost : 5,
+		coins : 2,
+		description : "While this is in play, when you buy a card, gain a card costing less than it that is not a Victory card.",
+	},
+	{
+		name : "Highway",
+		setId : 8,
+		isAction : true,
+		cost : 5,
+		cards : 1,
+		actions : 1,
+		description : "While this is in play, cards cost 1 Coin less, but not less than 0 Coins.",
+	},
+	{
+		name : "Ill-Gotten Gains",
+		setId : 8,
+		isTreasure : true,
+		cost : 5,
+		coins : 1,
+		description : "When you play this, may gain a Copper, putting it into your hand. When you gain this, each other player gains a Curse.",
+	},
+	{
+		name : "Inn",
+		setId : 8,
+		isAction : true,
+		cost : 5,
+		cards : 2,
+		actions : 2,
+		description : "Discard 2 cards. When you gain this, look through your discard pile (including this), reveal any number of Action cards from it, and shuffle them into your deck.",
+	},
+	{
+		name : "Jack of all Trades",
+		setId : 8,
+		isAction : true,
+		cost : 4,
+		description : "Gain a Silver. Look at the top card of your deck, discard it or put it back. Draw until you have 5 cards in hand. You may trash a card from your hand that is not a Treasure.",
+	},
+	{
+		name : "Mandarin",
+		setId : 8,
+		isAction : true,
+		cost : 5,
+		coins : 3,
+		description : "Put a card from your hand on top of your deck. When you gain this, put all Treasures you have in play on top of your deck in any order.",
+	},
+	{
+		name : "Margrave",
+		setId : 8,
+		isAction : true,
+		isAttack : true,
+		cost : 5,
+		cards : 3,
+		buys : 1,
+		description : "Each other player draws a card, then discards down to 3 cards in hand.",
+	},
+	{
+		name : "Noble Brigand",
+		setId : 8,
+		isAction : true,
+		isAttack : true,
+		cost : 4,
+		coins : 1,
+		description : "When you buy this or play it, each other player reveals the top 2 cards of his deck, trashes a revealed Silver or Gold you choose, and discards the rest. If he didn't reveal a Treasure, he gains a Copper. You gain the trashed cards.",
+	},
+	{
+		name : "Nomad Camp",
+		setId : 8,
+		isAction : true,
+		cost : 4,
+		coins : 2,
+		buys : 1,
+		description : "When you gain this, put it on top of your deck.",
+	},
+	{
+		name : "Oasis",
+		setId : 8,
+		isAction : true,
+		cost : 3,
+		cards : 1,
+		actions : 1,
+		coins : 1,
+		description : "Discard a card.",
+	},
+	{
+		name : "Oracle",
+		setId : 8,
+		isAction : true,
+		isAttack : true,
+		cost : 3,
+		cards : 2,
+		description : "Each player (including you) reveals the top 2 cards of his deck, and you choose one: either he discards them, or he puts them back on top in an order he chooses.",
+	},
+	{
+		name : "Scheme",
+		setId : 8,
+		isAction : true,
+		cost : 3,
+		cards : 1,
+		actions : 1,
+		description : "At the start of Clean-up this turn, you may choose an Action card you have in play. If you discard it from play this turn, put it on your deck.",
+	},
+	{
+		name : "Silk Road",
+		setId : 8,
+		isVictory : true,
+		cost : 4,
+		description : "Worth 1 VP for every 4 Victory cards in your deck (round down).",
+	},
+	{
+		name : "Spice Merchant",
+		setId : 8,
+		isAction : true,
+		cost : 4,
+		description : "You may trash a Treasure from your hand. If you do, choose one: +2 Cards and +1 Action, or +2 Coins and +1 Buy.",
+	},
+	{
+		name : "Stables",
+		setId : 8,
+		isAction : true,
+		cost : 5,
+		description : "You may discard a Treasure. If you do, +3 Cards and +1 Action.",
+	},
+	{
+		name : "Trader",
+		setId : 8,
+		isAction : true,
+		isReaction : true,
+		cost : 4,
+		description : "[Action]: Trash a card from your hand. Gain a number of silvers equal to its cost in Coins. [Reaction]: When you would gain a card, you may reveal this from your hand. If you do, instead, gain a silver.",
+	},
+	{
+		name : "Tunnel",
+		setId : 8,
+		isVictory : true,
+		isReaction : true,
+		cost : 3,
+		victoryPoints : 2,
+		description : "When you discard this other than during a Clean-up phase, you may reveal it. If you do, gain a Gold.",
+	},
 ];
 
 /*
-Fairgrounds	Cornucopia	Victory			6						Worth 2 VP for every 5 differently named cards in your deck (rounded down).	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Farming Village	Cornucopia	Action			4		2				Reveal cards from the top of your deck until you reveal an Action or Treasure card. Put that card into your hand and discard the other cards.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Fortune Teller	Cornucopia	Action	Attack		3			2			Each other player reveals cards from the top of his deck until he reveals a Victory or Curse card. He puts it on top and discards  the other revealed cards.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Hamlet	Cornucopia	Action			2	1	1				You may discard a card, if you do +1 Action. You may discard a card, if you do +1 Buy.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Harvest	Cornucopia	Action			5						Reveal the top 4 cards of your deck, then discard them. +1 Coin per differently named card revealed.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Horn of Plenty	Cornucopia	Treasure			5						When you play this, gain a card costing up to 1 Coin per differently named card you have in play, counting this. If it’s a Victory card, trash this.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Horse Traders	Cornucopia	Action	Reaction		4			3	1		[Action]: Discard 2 Cards. [Reaction]: When another player plays an Attack card, you may set this aside from your hand. If you do, then at the start of your next turn, +1 Card and return this to your hand.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Hunting Party	Cornucopia	Action			5	1	1				Reveal your hand. Reveal cards from your deck until you reveal a card that isn’t a duplicate of one in your hand. Put it into your hand and discard the rest.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Jester	Cornucopia	Action	Attack		5			2			Each other player discards the top card of his deck. If it’s a Victory card he gains a Curse. Otherwise he gains a copy of the discarded card or you do, your choice.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Menagerie	Cornucopia	Action			3		1				Reveal your hand. If there are no duplicate cards in it, +3 Cards. Otherwise, +1 Card.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Remake	Cornucopia	Action			4						Do this twice: Trash a card from your hand then gain a card costing exactly 1 Coin more than the trashed card.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Tournament	Cornucopia	Action			4		1				Each player may reveal a Provence from his hand. If you do, discard it and gain a Prize (from the Prize pile) or a Duchy, putting it on top of your deck. If no one else does, +1 Card, +1 Coin.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Young Witch	Cornucopia	Action	Attack		4	2					Each other player may reveal a Bane card from his hand. If he doesn’t, he gains a Curse. [Set-up]: Add an extra Kingdom card pile costing 2 Coins or 3 Coins to the supply. Cards from that pile are Bane cards.	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Border Village	Hinterlands	Action			6	1	2				When you gain this, gain a card costing less than this.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Cache	Hinterlands	Treasure			5			3			When you gain this, gain two Coppers.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Cartographer	Hinterlands	Action			5	1	1				Look at the top 4 cards of your deck. Discard any number of them. Put the rest back on top in any order.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Crossroads	Hinterlands	Action			2						Reveal your hand. +1 Card per Victory card revealed. If this is the first time you played Crossroads this turn, +3 Actions.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Develop	Hinterlands	Action			3						Trash a card from your hand. Gain a card costing exactly 1 Coin more than it and a card costing exactly 1 Coin less than it, in either order, putting them on top of your deck.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Duchess	Hinterlands	Action			2			2			Each player (including you) looks at the top card of his deck, and discards it or puts it back. In games using this, when you gain a Duchy, you may gain a Duchess.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Embassy	Hinterlands	Action			5	5					Discard 3 cards. When you gain this, each other player gains a Silver.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Farmland	Hinterlands	Victory			6					2	When you buy this, trash a card from your hand. Gain a card costing exactly 2 Coins more than the trashed card.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Fool's Gold	Hinterlands	Treasure	Reaction		2						[Treasure]: If this is the first time you played a Fool's Gold this turn, this is worth 1 Coin, otherwise it's worth 4 Coins. [Reaction]: When another player gains a Province, you may trash this from your hand. If you do, gain a Gold, putting it on your deck.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Haggler	Hinterlands	Action			5			2			While this is in play, when you buy a card, gain a card costing less than it that is not a Victory card.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Highway	Hinterlands	Action			5	1	1				While this is in play, cards cost 1 Coin less, but not less than 0 Coins.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Ill-Gotten Gains	Hinterlands	Treasure			1						When you play this, may gain a Copper, putting it into your hand. When you gain this, each other player gains a Curse.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Inn	Hinterlands	Action			5	2	2				Discard 2 cards. When you gain this, look through your discard pile (including this), reveal any number of Action cards from it, and shuffle them into your deck.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Jack of all Trades	Hinterlands	Action			4						Gain a Silver. Look at the top card of your deck, discard it or put it back. Draw until you have 5 cards in hand. You may trash a card from your hand that is not a Treasure.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Mandarin	Hinterlands	Action			5			3			Put a card from your hand on top of your deck. When you gain this, put all Treasures you have in play on top of your deck in any order.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Margrave	Hinterlands	Action	Attack		5	3			1		Each other player draws a card, then discards down to 3 cards in hand.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Noble Brigand	Hinterlands	Action	Attack		4			1			When you buy this or play it, each other player reveals the top 2 cards of his deck, trashes a revealed Silver or Gold you choose, and discards the rest. If he didn't reveal a Treasure, he gains a Copper. You gain the trashed cards.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Nomad Camp	Hinterlands	Action			4			2	1		When you gain this, put it on top of your deck.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Oasis	Hinterlands	Action			3	1	1	1			Discard a card.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Oracle	Hinterlands	Action	Attack		3						Each player (including you) reveals the top 2 cards of his deck, and you choose one: either he discards them, or he puts them back on top in an order he chooses. +2 Cards.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Scheme	Hinterlands	Action			3	1	1				At the start of Clean-up this turn, you may choose an Action card you have in play. If you discard it from play this turn, put it on your deck.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Silk Road	Hinterlands	Victory			4						Worth 1 VP for every 4 Victory cards in your deck (round down).	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Spice Merchant	Hinterlands	Action			4						You may trash a Treasure from your hand. If you do, choose one: +2 Cards and +1 Action, or +2 Coins and +1 Buy.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Stables	Hinterlands	Action			5						You may discard a Treasure. If you do, +3 Cards and +1 Action.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Trader	Hinterlands	Action	Reaction		4						[Action]: Trash a card from your hand. Gain a number of silvers equal to its cost in Coins. [Reaction]: When you would gain a card, you may reveal this from your hand. If you do, instead, gain a silver.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
-Tunnel	Hinterlands	Victory	Reaction		3					2	When you discard this other than during a Clean-up phase, you may reveal it. If you do, gain a Gold.	Oct-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Stash	Promo	Treasure			5			2			When you shuffle, you may put this anywhere in your deck.	Feb-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Bag of Gold	Cornucopia	Action	Prize		0*		1				Gain a Gold, putting it on top of your deck. (This is not in the Supply)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Diadem	Cornucopia	Treasure	Prize		0*			2			When you play this, +1 Coin per unused Action you have (Action, not Action card). (This is not in the Supply)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
