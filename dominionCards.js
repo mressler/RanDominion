@@ -96,6 +96,7 @@ var cards = [
 		actions : 1,
 		coins : 2,
 		buys : 1,
+		description : "",
 	},
 	{
 		name : "Gardens",
@@ -111,6 +112,7 @@ var cards = [
 		cost : 5,
 		cards : 2,
 		actions : 1,
+		description : "",
 	},
 	{
 		name : "Library",
@@ -128,6 +130,7 @@ var cards = [
 		actions : 1,
 		coins : 1,
 		buys : 1,
+		description : "",
 	},
 	{
 		name : "Militia",
@@ -141,6 +144,7 @@ var cards = [
 	{
 		name : "Mine",
 		setId : 1,
+		isAction : true,
 		cost : 5,
 		description : "Trash a Treasure card from your hand. Gain a Treasure card costing up to 3 Coins more, put it into your hand."
 	},
@@ -173,6 +177,7 @@ var cards = [
 		isAction : true,
 		cost : 4,
 		cards : 3,
+		description : "",
 	},
 	{
 		name : "Spy",
@@ -224,6 +229,7 @@ var cards = [
 		cost : 3,
 		coins : 2,
 		buys : 1,
+		description : "",
 	},
 	{
 		name : "Workshop",
@@ -303,6 +309,7 @@ var cards = [
 		cards : 1,
 		actions : 1,
 		victoryPoints : 1,
+		description : "",
 	},
 	{
 		name : "Harem",
@@ -312,6 +319,7 @@ var cards = [
 		cost : 6,
 		coins : 2,
 		victoryPoints : 2,
+		description : "",
 	},
 	{
 		name : "Iron Works",
@@ -464,7 +472,7 @@ var cards = [
 		cost : 5,
 		cards : 1,
 		actions : 2,
-		coin : 1,
+		coins : 1,
 		description : "",
 	},
 	{
@@ -1062,7 +1070,7 @@ var cards = [
 		description : "Each other player discards the top card of his deck. If it’s a Victory card he gains a Curse. Otherwise he gains a copy of the discarded card or you do, your choice.",
 	},
 	{
-		name : "Menagierie",
+		name : "Menagerie",
 		setId : 7,
 		isAction : true,
 		cost : 3,
@@ -1099,7 +1107,7 @@ var cards = [
 		isAction : true,
 		cost : 6,
 		cards : 1,
-		action : 2,
+		actions : 2,
 		description : "When you gain this, gain a card costing less than this.",
 	},
 	{
@@ -1310,14 +1318,99 @@ var cards = [
 	},
 ];
 
-var recommendedSets = {
-	1 : [
-	     {
-	    	 name : "First Game",
-	    	 cards : [],
-	     },
-	],
-};
+var cardLookupByName = {};
+for (var i in cards) {
+	cardLookupByName[cards[i].name] = i;
+}
+
+var recommendedKingdoms = [
+     {
+    	 name : "Introduction",
+    	 cards : ["Cache","Crossroads","Develop","Haggler","Jack of all Trades","Margrave","Nomad Camp","Oasis","Spice Merchant","Stables"],
+     },
+     {
+    	 name : "Fair Trades",
+    	 cards : ["Border Village","Cartographer","Develop","Duchess","Farmland","Ill-Gotten Gains","Noble Brigand","Silk Road","Stables","Trader"],
+     },
+     {
+    	 name : "Bargains",
+    	 cards : ["Border Village","Cache","Duchess","Fool's Gold","Haggler","Highway","Nomad Camp","Scheme","Spice Merchant","Trader"],
+     },
+     {
+    	 name : "Gambits",
+    	 cards : ["Cartographer","Crossroads","Embassy","Inn","Jack of all Trades","Mandarin","Nomad Camp","Oasis","Oracle","Tunnel"],
+     },
+     {
+    	 name : "Highway Robbery",
+    	 cards : ["Cellar","Library","Moneylender","Throne Room","Workshop","Highway","Inn","Margrave","Noble Brigand","Oasis"],
+     },
+     {
+    	 name : "Adventures Abroad",
+    	 cards : ["Adventurer","Chancellor","Festival","Laboratory","Remodel","Crossroads","Farmland","Fool's Gold","Oracle","Spice Merchant"],
+     },
+     {
+    	 name : "Money for Nothing",
+    	 cards : ["Coppersmith","Great Hall","Pawn","Shanty Town","Torturer","Cache","Cartographer","Jack of all Trades","Silk Road","Tunnel"],
+     },
+     {
+    	 name : "The Duke's Ball",
+    	 cards : ["Conspirator","Duke","Harem","Masquerade","Upgrade","Duchess","Haggler","Inn","Noble Brigand","Scheme"],
+     },
+     {
+    	 name : "Travelers",
+    	 cards : ["Cutpurse","Island","Lookout","Merchant Ship","Warehouse","Cartographer","Crossroads","Farmland","Silk Road","Stables"],
+     },
+     {
+    	 name : "Diplomacy",
+    	 cards : ["Ambassador","Bazaar","Caravan","Embargo","Smugglers","Embassy","Farmland","Ill-Gotten Gains","Noble Brigand","Trader"],
+     },
+     {
+    	 name : "Schemes and Dreams",
+    	 cards : ["Apothecary","Apprentice","Herbalist","Philosopher's Stone","Transmute","Duchess","Fool's Gold","Ill-Gotten Gains","Jack of all Trades","Scheme"],
+     },
+     {
+    	 name : "Wine Country",
+    	 cards : ["Apprentice","Familiar","Golem","University","Vineyard","Crossroads","Farmland","Haggler","Highway","Nomad Camp"],
+     },
+     {
+    	 name : "Instant Gratification",
+    	 cards : ["Bishop","Expand","Hoard","Mint","Watchtower","Farmland","Haggler","Ill-Gotten Gains","Noble Brigand","Trader"],
+     },
+     {
+    	 name : "Treasure Trove",
+    	 cards : ["Bank","Monument","Royal Seal","Trade Route","Venture","Cache","Develop","Fool's Gold","Ill-Gotten Gains","Mandarin"],
+     },
+     {
+    	 name : "Blue Harvest",
+    	 cards : ["Hamlet","Horn of Plenty","Horse Traders","Jester","Tournament","Fool's Gold","Mandarin","Noble Brigand","Trader","Tunnel"],
+     },
+     {
+    	 name : "Traveling Circus",
+    	 cards : ["Fairgrounds","Farming Village","Hunting Party","Jester","Menagerie","Border Village","Embassy","Fool's Gold","Nomad Camp","Oasis"],
+     },
+];
+
+var recommendedBySet = {};
+for (var setId in sets) {
+	recommendedBySet[setId] = [];
+}
+
+for (var i in recommendedKingdoms) {
+	var kingdom = recommendedKingdoms[i];
+	
+	kingdom.hasSet = {};
+	
+	for (var j in kingdom.cards) {
+		var cardName = kingdom.cards[j];
+		var card = cards[cardLookupByName[cardName]];
+		
+		kingdom.hasSet[card.setId] = true;
+	}
+	
+	for (var setId in kingdom.hasSet) {
+		recommendedBySet[setId].push(kingdom);
+	}
+}
 
 /*
 Stash	Promo	Treasure			5			2			When you shuffle, you may put this anywhere in your deck.	Feb-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			

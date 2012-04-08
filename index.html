@@ -2,12 +2,16 @@
 <html> 
 	<head> 
 	<title>RanDominion</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	 
 	<link rel="stylesheet" href="jquery.mobile.css" /> 
 	<link rel="stylesheet" href="dominion.css" />
+	
 	<script src="jquery.js"></script>
 	<script src="jquery.mobile.js"></script>
 	<script src="dominionCards.js"></script>
+	<script src="test.js"></script>
 	<script src="jquery.cookie.js"></script>
 </head> 
 <body> 
@@ -25,15 +29,29 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 		// category.
 		var u = $.mobile.path.parseUrl( data.toPage );
 		var random = /^#random/;
+		var recommended = /^#recommended/;
+		var kingdomSelect = /^#kingdomSelect/;
+		var displayKingdoms = /^#displayKingdoms/;
+		var showKingdom = /^#showKingdom/;
 
 		if ( u.hash.search(random) !== -1 ) {
 			generateRandom( u, data.options );
 			
 			e.preventDefault();
+		} else if ( u.hash.search(recommended) !== -1 ) {
+			firstSetFilter = 0;
+		} else if ( u.hash.search(kingdomSelect) !== -1 ) {
+			refineRecommended( u, data.options );
+		} else if ( u.hash.search(displayKingdoms) !== -1 ) {
+			displayKingdomList( u, data.options );
+		} else if ( u.hash.search(showKingdom) !== -1 ) {
+			showRecommendedKingdom( u, data.options );
 		}
 	}
 });
 $( '#config' ).live( 'pagecreate', setConfigData );
+$( '#recommended' ).live( 'pagecreate', setRecommendedCounts);
+
 $(".persistChecked").live( 'change', function (e) {
 	var isChecked = this.checked;
 	$.cookie($(this).attr("id"), isChecked ? "true" : null);
@@ -42,16 +60,18 @@ $(".persistChecked").live( 'change', function (e) {
 $(".persistValue").live( 'change', function (e) {
 	$.cookie($(this).attr("name"), $(this).val());
 });
-$("#random .persistValue").live( 'change', function (e) {
+$(".updateSortOrder.persistValue").live( 'change', function (e) {
 	var orderBy = $(this).val();
-	var $page = $( "#random" );
-	var $content = $page.find( "#randomCards" );
+	var $page = $(this).closest( ".ui-page" )
+	var $content = $page.find( ".randomCards" );
 	
 	var markup = getCardList(selectedCards, orderBy);
 	
 	$content.html(markup);
 
 	$content.find(":jqmData(role=listview)").listview();
+
+	$.mobile.fixedToolbars.show(true);
 });
 
 function getCardList(selectedCards, orderBy) {
@@ -101,6 +121,15 @@ function setConfigData() {
 	$("#orderBy-" + orderBy).attr("checked", "checked");
 }
 
+function setRecommendedCounts() {
+	$("#set-0-count").html(recommendedKingdoms.length);
+	for (var i in sets) {
+		if (recommendedBySet[i] != undefined) {
+			$("#set-" + i + "-count").html(recommendedBySet[i].length);
+		}
+	}
+}
+
 function cardAllowed(someCard) {
 	return ($.cookie("set-" + someCard.setId) != undefined) || ((someCard.setId == 1) && ($.cookie("set-1") == undefined));
 }
@@ -136,7 +165,7 @@ function sortByExpansion(cardOne, cardTwo) {
 var selectedCards = [];
 function generateRandom( urlObj, options ) {
 	var $page = $( "#random" );
-	var $content = $page.find( "#randomCards" );
+	var $content = $page.find( ".randomCards" );
 
 	var numCards = $.cookie("kingdomSize") || 10;
 	selectedCards = [];
@@ -163,6 +192,83 @@ function generateRandom( urlObj, options ) {
 	// Now call changePage() and tell it to switch to
 	// the page we just modified.
 	$.mobile.changePage( $page, options );
+}
+
+var firstSetFilter = 0;
+function refineRecommended( urlObj, options ) {
+	var $page = $( "#kingdomSelect" );
+	var setId = urlObj.hash.replace( /.*set=/, "" );
+	firstSetFilter = setId;
+
+	$( "#kingdomSelect li" ).show();
+	
+	$("#refine-" + setId).hide();
+
+	// Find the h1 element in our header and inject the name of
+	// the category into it.
+	$page.find( "h1" ).html( sets[setId].name + " Sets");
+
+	var countsBySet = {};
+	for (var i in sets) {
+		countsBySet[i] = 0;
+	}
+	
+	for (var i in recommendedBySet[setId]) {
+		var kingdom = recommendedBySet[setId][i];
+		for (var setId in kingdom.hasSet) {
+			countsBySet[setId]++;
+		}
+	}
+
+	$("#refine-0-count").html(recommendedBySet[setId].length);
+	for (var setId in countsBySet) {
+		$("#refine-" + setId + "-count").html(countsBySet[setId]);
+	}
+}
+
+function displayKingdomList( urlObj, options ) {
+	var $page = $( "#displayKingdoms" );
+	var setId = urlObj.hash.replace( /.*set=/, "" );
+
+	var markup = "<ul data-role='listview' data-inset='true'>";
+	for (var i in recommendedKingdoms) {
+		var kingdom = recommendedKingdoms[i];
+		
+		if ((firstSetFilter == 0) || (kingdom.hasSet[firstSetFilter] && ((setId == 0) || kingdom.hasSet[setId]))) {
+			markup += "<li><a href='#showKingdom?kingdom=" + i + "'>" + kingdom.name + "</a></li>";
+		}
+	}
+	markup += "</ul>";
+
+	$page.children( ":jqmData(role=content)" ).html(markup);
+
+	$page.page();
+
+	$page.find( ":jqmData(role=listview)" ).listview();
+}
+
+function showRecommendedKingdom( urlObj, options ) {
+	var $page = $( "#showKingdom" );
+	var $content = $page.find( ".randomCards" );
+	var kingdomIndex = urlObj.hash.replace( /.*kingdom=/, "" );
+
+	var kingdom = recommendedKingdoms[kingdomIndex];
+
+	selectedCards = [];
+	for (var i in kingdom.cards) {
+		var cardName = kingdom.cards[i];
+		selectedCards.push(cards[cardLookupByName[cardName]]);
+	}
+	
+	var orderBy = $.cookie("orderBy") || "alphabetical";
+	var markup = getCardList(selectedCards, orderBy);
+	
+	$content.html(markup);
+
+	$page.page();
+
+	// Enhance the listview we just injected.
+	$content.find( ":jqmData(role=listview)" ).listview();
 }
 </script>
 
@@ -225,7 +331,7 @@ function generateRandom( urlObj, options ) {
 		
 	</div><!-- /content -->
 	
-	<div data-role="footer" data-position="fixed">		
+	<div data-role="footer">		
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#" data-icon="grid" class="ui-btn-active">Random</a></li>
@@ -245,25 +351,25 @@ function generateRandom( urlObj, options ) {
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<div id="randomCards"></div>
+		<div class="randomCards"></div>
 		<hr/>
 		<div data-role="fieldcontain">
 			<fieldset data-role="controlgroup">
 				<legend>Order by?</legend>
 				
 	     		<label for="orderBy-alphabetical">Alphabetical</label>
-				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='persistValue' />
+				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='persistValue updateSortOrder' />
 				
 	     		<label for="orderBy-alphaWithSets">Alpha w/ Sets</label>
-				<input type="radio" name="orderBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='persistValue' />
+				<input type="radio" name="orderBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='persistValue updateSortOrder' />
 				
 	     		<label for="orderBy-cost">Cost</label>
-				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='persistValue' />
+				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='persistValue updateSortOrder' />
 			</fieldset>
 		</div>	
 	</div><!-- /content -->
 	
-	<div data-role="footer" data-position="fixed">		
+	<div data-role="footer">		
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#config" data-icon="grid" class="ui-btn-active">Random</a></li>
@@ -282,23 +388,113 @@ function generateRandom( urlObj, options ) {
 
 	<div data-role="content">	
 		<ul data-role="listview">
-			<li><a href="#setSelect?set=0">All</a></li>
-			<li><a href="#setSelect?set=1">Basic</a></li>
-			<li><a href="#setSelect?set=3">Intrigue</a></li>
-			<li><a href="#setSelect?set=4">Seaside</a></li>
-			<li><a href="#setSelect?set=5">Alchemy</a></li>
-			<li><a href="#setSelect?set=6">Prosperity</a></li>
-			<li><a href="#setSelect?set=7">Cornucopia</a></li>
-			<li><a href="#setSelect?set=8">Hinterlands</a></li>
-			<li><a href="#setSelect?set=2">Promo</a></li>
+			<li><a href="#displayKingdoms">All<span class='ui-li-count' id="set-0-count">0</span></a></li>
+			<li><a href="#kingdomSelect?set=1">Basic<span class='ui-li-count' id="set-1-count">0</span></a></li>
+			<li><a href="#kingdomSelect?set=3">Intrigue<span class='ui-li-count' id="set-3-count">0</span></a></li>
+			<li><a href="#kingdomSelect?set=4">Seaside<span class='ui-li-count' id="set-4-count">0</span></a></li>
+			<li><a href="#kingdomSelect?set=5">Alchemy<span class='ui-li-count' id="set-5-count">0</span></a></li>
+			<li><a href="#kingdomSelect?set=6">Prosperity<span class='ui-li-count' id="set-6-count">0</span></a></li>
+			<li><a href="#kingdomSelect?set=7">Cornucopia<span class='ui-li-count' id="set-7-count">0</span></a></li>
+			<li><a href="#kingdomSelect?set=8">Hinterlands<span class='ui-li-count' id="set-8-count">0</span></a></li>
+			<li><a href="#kingdomSelect?set=2">Promo<span class='ui-li-count' id="set-2-count">0</span></a></li>
 		</ul>
 	</div><!-- /content -->
 	
-	<div data-role="footer" data-position="fixed">		
+	<div data-role="footer">		
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#config" data-icon="grid">Random</a></li>
 				<li><a href="#" data-icon="star" class="ui-btn-active">Recommended</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="kingdomSelect">
+
+	<div data-role="header">
+		<a href="#config" data-icon="back" data-rel="back">Back</a>
+		<h1>RanDominion</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<ul data-role="listview">
+			<li id="refine-0"><a href="#displayKingdoms">All<span class='ui-li-count' id="refine-0-count">0</span></a></li>
+			<li id="refine-1"><a href="#displayKingdoms?set=1">Basic<span class='ui-li-count' id="refine-1-count">0</span></a></li>
+			<li id="refine-3"><a href="#displayKingdoms?set=3">Intrigue<span class='ui-li-count' id="refine-3-count">0</span></a></li>
+			<li id="refine-4"><a href="#displayKingdoms?set=4">Seaside<span class='ui-li-count' id="refine-4-count">0</span></a></li>
+			<li id="refine-5"><a href="#displayKingdoms?set=5">Alchemy<span class='ui-li-count' id="refine-5-count">0</span></a></li>
+			<li id="refine-6"><a href="#displayKingdoms?set=6">Prosperity<span class='ui-li-count' id="refine-6-count">0</span></a></li>
+			<li id="refine-7"><a href="#displayKingdoms?set=7">Cornucopia<span class='ui-li-count' id="refine-7-count">0</span></a></li>
+			<li id="refine-8"><a href="#displayKingdoms?set=8">Hinterlands<span class='ui-li-count' id="refine-8-count">0</span></a></li>
+			<li id="refine-2"><a href="#displayKingdoms?set=2">Promo<span class='ui-li-count' id="refine-2-count">0</span></a></li>
+		</ul>
+	</div><!-- /content -->
+	
+	<div data-role="footer">		
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#config" data-icon="grid">Random</a></li>
+				<li><a href="#" data-icon="star" class="ui-btn-active">Recommended</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="displayKingdoms">
+
+	<div data-role="header">
+		<a href="#config" data-icon="back" data-rel="back">Back</a>
+		<h1>Kingdoms</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	</div><!-- /content -->
+	
+	<div data-role="footer">		
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#config" data-icon="grid">Random</a></li>
+				<li><a href="#recommended" data-icon="star" class="ui-btn-active">Recommended</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="showKingdom">
+
+	<div data-role="header">
+		<a href="#config" data-icon="back" data-rel="back">Back</a>
+		<h1></h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div class="randomCards"></div>
+		<hr/>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<legend>Order by?</legend>
+				
+	     		<label for="orderBy-alphabetical">Alphabetical</label>
+				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='persistValue updateSortOrder' />
+				
+	     		<label for="orderBy-alphaWithSets">Alpha w/ Sets</label>
+				<input type="radio" name="orderBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='persistValue updateSortOrder' />
+				
+	     		<label for="orderBy-cost">Cost</label>
+				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='persistValue updateSortOrder' />
+			</fieldset>
+		</div>	
+	</div><!-- /content -->
+	
+	<div data-role="footer">		
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#config" data-icon="grid" class="ui-btn-active">Random</a></li>
+				<li><a href="#recommended" data-icon="star">Recommended</a></li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /footer -->
