@@ -215,8 +215,8 @@ function refineRecommended( urlObj, options ) {
 	
 	for (var i in recommendedBySet[setId]) {
 		var kingdom = recommendedBySet[setId][i];
-		for (var setId in kingdom.hasSet) {
-			countsBySet[setId]++;
+		for (var j in kingdom.hasSet) {
+			countsBySet[j]++;
 		}
 	}
 
@@ -422,7 +422,7 @@ function showRecommendedKingdom( urlObj, options ) {
 
 	<div data-role="content">	
 		<ul data-role="listview">
-			<li id="refine-0"><a href="#displayKingdoms">All<span class='ui-li-count' id="refine-0-count">0</span></a></li>
+			<li id="refine-0"><a href="#displayKingdoms?set=0">All<span class='ui-li-count' id="refine-0-count">0</span></a></li>
 			<li id="refine-1"><a href="#displayKingdoms?set=1">Basic<span class='ui-li-count' id="refine-1-count">0</span></a></li>
 			<li id="refine-3"><a href="#displayKingdoms?set=3">Intrigue<span class='ui-li-count' id="refine-3-count">0</span></a></li>
 			<li id="refine-4"><a href="#displayKingdoms?set=4">Seaside<span class='ui-li-count' id="refine-4-count">0</span></a></li>
