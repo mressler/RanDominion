@@ -245,6 +245,8 @@ function displayKingdomList( urlObj, options ) {
 	$page.page();
 
 	$page.find( ":jqmData(role=listview)" ).listview();
+
+	options.dataUrl = urlObj.href;
 }
 
 function showRecommendedKingdom( urlObj, options ) {
