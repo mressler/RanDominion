@@ -1310,6 +1310,15 @@ var cards = [
 	},
 ];
 
+var recommendedSets = {
+	1 : [
+	     {
+	    	 name : "First Game",
+	    	 cards : [],
+	     },
+	],
+};
+
 /*
 Stash	Promo	Treasure			5			2			When you shuffle, you may put this anywhere in your deck.	Feb-10																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 Bag of Gold	Cornucopia	Action	Prize		0*		1				Gain a Gold, putting it on top of your deck. (This is not in the Supply)	Jun-11																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
