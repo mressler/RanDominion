@@ -766,7 +766,7 @@ var cards = [
 		name : "Transmute",
 		setId : 5,
 		isAction : true,
-		cost : 1,
+		cost : 0,
 		potion : true,
 		description : "Trash a card from your hand. If it is a…  Action card, gain a Duchy. Treasure card, gain a Transmute. Victory card, gain a Gold.",
 	},

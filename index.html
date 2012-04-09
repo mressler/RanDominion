@@ -53,7 +53,8 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 });
 $( '#config' ).live( 'pagecreate', setConfigData );
 $( '#recommended' ).live( 'pagecreate', setRecommendedCounts);
-$( '#showKingdom' ).live( 'pagecreate', createShowKingdom);
+$( '#showKingdom' ).live( 'pagecreate', setOrderBy);
+$( '#random' ).live( 'pagecreate', setOrderBy);
 
 $(".persistChecked").live( 'change', function (e) {
 	var isChecked = this.checked;
@@ -61,7 +62,11 @@ $(".persistChecked").live( 'change', function (e) {
 });
 
 $(".persistValue").live( 'change', function (e) {
-	$.cookie($(this).attr("name"), $(this).val());
+	var name = $(this).attr("name");
+	if (name == "orderKingdomBy") {
+		name = "orderBy";
+	}
+	$.cookie(name, $(this).val());
 });
 $(".updateSortOrder.persistValue").live( 'change', function (e) {
 	var orderBy = $(this).val();
@@ -98,7 +103,7 @@ function getCardList(selectedCards, orderBy) {
 			currentSetId = card.setId;
 			markup += "<li data-role='list-divider'>" + sets[currentSetId].name + "</li>";
 		}
-		markup += "<li>" + card.name + "<span class='ui-li-count'>" + card.cost + "</span></li>";
+		markup += "<li>" + card.name + "<span class='ui-li-count'>" + card.cost + (card.potion ? " + P" : "") + "</span></li>";
 	}
 
 	markup += "</ul>";
@@ -119,14 +124,11 @@ function setConfigData() {
 
 	var kingdomSize = $.cookie("kingdomSize") || 10;
 	$("#kingdomSize-" + kingdomSize).attr("checked", "checked");
-	
-	var orderBy = $.cookie("orderBy") || "alphabetical";
-	$(".orderBy-" + orderBy).attr("checked", "checked");
 }
 
-function createShowKingdom() {
+function setOrderBy() {
 	var orderBy = $.cookie("orderBy") || "alphabetical";
-	$(".orderBy-" + orderBy).attr("checked", "checked");
+	$(".orderBy." + orderBy).prop("checked", true);
 }
 
 function setRecommendedCounts() {
@@ -370,13 +372,13 @@ function showRecommendedKingdom( urlObj, options ) {
 				<legend>Order by?</legend>
 				
 	     		<label for="orderBy-alphabetical">Alphabetical</label>
-				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='orderBy-alphabetical persistValue updateSortOrder' />
+				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='orderBy alphabetical persistValue updateSortOrder' />
 				
 	     		<label for="orderBy-alphaWithSets">Alpha w/ Sets</label>
-				<input type="radio" name="orderBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='orderBy-alphaWithSets persistValue updateSortOrder' />
+				<input type="radio" name="orderBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='orderBy alphaWithSets persistValue updateSortOrder' />
 				
 	     		<label for="orderBy-cost">Cost</label>
-				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='orderBy-cost persistValue updateSortOrder' />
+				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='orderBy cost persistValue updateSortOrder' />
 			</fieldset>
 		</div>	
 	</div><!-- /content -->
@@ -491,13 +493,13 @@ function showRecommendedKingdom( urlObj, options ) {
 				<legend>Order by?</legend>
 				
 	     		<label for="orderBy-alphabetical">Alphabetical</label>
-				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='orderBy-alphabetical persistValue updateSortOrder' />
+				<input type="radio" name="orderKingdomBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='orderBy alphabetical persistValue updateSortOrder' />
 				
 	     		<label for="orderBy-alphaWithSets">Alpha w/ Sets</label>
-				<input type="radio" name="orderBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='orderBy-alphaWithSets persistValue updateSortOrder' />
+				<input type="radio" name="orderKingdomBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='orderBy alphaWithSets persistValue updateSortOrder' />
 				
 	     		<label for="orderBy-cost">Cost</label>
-				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='orderBy-cost persistValue updateSortOrder' />
+				<input type="radio" name="orderKingdomBy" id="orderBy-cost" value="cost" class='orderBy cost persistValue updateSortOrder' />
 			</fieldset>
 		</div>	
 	</div><!-- /content -->
