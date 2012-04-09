@@ -42,7 +42,7 @@ var cards = [
 		description : "Reveal cards from your deck until you reveal 2 Treasure cards. Put those Treasure cards into your hand and discard the other revealed cards.",
 	},
 	{
-		name : "Bereaucrat",
+		name : "Bureaucrat",
 		setId : 1,
 		isAction : true,
 		isAttack : true,
@@ -322,7 +322,7 @@ var cards = [
 		description : "",
 	},
 	{
-		name : "Iron Works",
+		name : "Ironworks",
 		setId : 3,
 		isAction : true,
 		cost : 4,
@@ -1387,6 +1387,158 @@ var recommendedKingdoms = [
      {
     	 name : "Traveling Circus",
     	 cards : ["Fairgrounds","Farming Village","Hunting Party","Jester","Menagerie","Border Village","Embassy","Fool's Gold","Nomad Camp","Oasis"],
+     },
+     {
+    	 name : "Forbidden Arts",
+    	 cards : ["Apprentice","Familiar","Possession","University","Cellar","Council Room","Gardens","Laboratory","Thief","Throne Room"],
+     },
+     {
+    	 name : "Potion Mixers",
+    	 cards : ["Alchemist","Apothecary","Golem","Herbalist","Transmute","Cellar","Chancellor","Festival","Militia","Smithy"],
+     },
+     {
+    	 name : "Chemistry Lesson",
+    	 cards : ["Alchemist","Golem","Philosopher's Stone","University","Bureaucrat","Market","Moat","Remodel","Witch","Woodcutter"],
+     },
+     {
+    	 name : "Servants",
+    	 cards : ["Golem","Possession","Scrying Pool","Transmute","Vineyard","Conspirator","Great Hall","Minion","Pawn","Steward"],
+     },
+     {
+    	 name : "Secret Research",
+    	 cards : ["Familiar","Herbalist","Philosopher's Stone","University","Bridge","Masquerade","Minion","Nobles","Shanty Town","Torturer"],
+     },
+     {
+    	 name : "Pools, Tools, and Fools",
+    	 cards : ["Apothecary","Apprentice","Golem","Scrying Pool","Baron","Coppersmith","Ironworks","Nobles","Trading Post","Wishing Well"],
+     },
+     {
+    	 name : "Bounty of the Hunt",
+    	 cards : ["Harvest","Horn of Plenty","Hunting Party","Menagerie","Tournament","Cellar","Festival","Militia","Moneylender","Smithy"],
+     },
+     {
+    	 name : "Bad Omens",
+    	 cards : ["Fortune Teller","Hamlet","Horn of Plenty","Jester","Remake","Adventurer","Bureaucrat","Laboratory","Spy","Throne Room"],
+     },
+     {
+    	 name : "Jester's Workshop",
+    	 cards : ["Fairgrounds","Farming Village","Horse Traders","Jester","Young Witch","Feast","Laboratory","Market","Remodel","Workshop","Chancellor"],
+     },
+     {
+    	 name : "Fast Laughs",
+    	 cards : ["Farming Village","Harvest","Horse Traders","Hunting Party","Jester","Minion","Nobles","Pawn","Steward","Swindler"],
+     },
+     {
+    	 name : "The Spice of Life",
+    	 cards : ["Fairgrounds","Horn of Plenty","Remake","Tournament","Young Witch","Coppersmith","Courtyard","Great Hall","Mining Village","Tribute","Wishing Well"],
+     },
+     {
+    	 name : "Small Victories",
+    	 cards : ["Fortune Teller","Hamlet","Hunting Party","Remake","Tournament","Conspirator","Duke","Great Hall","Harem","Pawn"],
+     },
+     {
+    	 name : "Beginners",
+    	 cards : ["Bank","Counting House","Expand","Goons","Monument","Rabble","Royal Seal","Venture","Watchtower","Worker's Village"],
+     },
+     {
+    	 name : "Friendly Interactive",
+    	 cards : ["Bishop","City","Contraband","Forge","Hoard","Peddler","Royal Seal","Trade Route","Vault","Worker's Village"],
+     },
+     {
+    	 name : "Big Actions",
+    	 cards : ["City","Expand","Grand Market","King's Court","Loan","Mint","Quarry","Rabble","Talisman","Vault"],
+     },
+     {
+    	 name : "Biggest Money",
+    	 cards : ["Bank","Grand Market","Mint","Royal Seal","Venture","Adventurer","Laboratory","Mine","Moneylender","Spy"],
+     },
+     {
+    	 name : "The King's Army",
+    	 cards : ["Expand","Goons","King's Court","Rabble","Vault","Bureaucrat","Council Room","Moat","Spy","Village"],
+     },
+     {
+    	 name : "The Good Life",
+    	 cards : ["Contraband","Counting House","Hoard","Monument","Mountebank","Bureaucrat","Cellar","Chancellor","Gardens","Village"],
+     },
+     {
+    	 name : "Paths to Victory",
+    	 cards : ["Bishop","Counting House","Goons","Monument","Peddler","Baron","Harem","Pawn","Shanty Town","Upgrade"],
+     },
+     {
+    	 name : "All Along the Watchtower",
+    	 cards : ["Hoard","Talisman","Trade Route","Vault","Watchtower","Bridge","Great Hall","Mining Village","Pawn","Torturer"],
+     },
+     {
+    	 name : "Lucky Seven",
+    	 cards : ["Bank","Expand","Forge","King's Court","Vault","Bridge","Coppersmith","Swindler","Tribute","Wishing Well"],
+     },
+     {
+    	 name : "Victory Dance",
+    	 cards : ["Bridge","Duke","Great Hall","Harem","Ironworks","Masquerade","Nobles","Pawn","Scout","Upgrade"],
+     },
+     {
+    	 name : "Secret Schemes",
+    	 cards : ["Conspirator","Harem","Ironworks","Pawn","Saboteur","Shanty Town","Steward","Swindler","Trading Post","Tribute"],
+     },
+     {
+    	 name : "Best Wishes",
+    	 cards : ["Coppersmith","Courtyard","Masquerade","Scout","Shanty Town","Steward","Torturer","Trading Post","Upgrade","Wishing Well"],
+     },
+     {
+    	 name : "Deconstruction",
+    	 cards : ["Bridge","Mining Village","Remodel","Saboteur","Secret Chamber","Spy","Swindler","Thief","Throne Room","Torturer"],
+     },
+     {
+    	 name : "Hand Madness",
+    	 cards : ["Bureaucrat","Chancellor","Council Room","Courtyard","Mine","Militia","Minion","Nobles","Steward","Torturer"],
+     },
+     {
+    	 name : "Underlings",
+    	 cards : ["Baron","Cellar","Festival","Library","Masquerade","Minion","Nobles","Pawn","Steward","Witch"],
+     },
+     {
+    	 name : "First Game",
+    	 cards : ["Cellar","Market","Militia","Mine","Moat","Remodel","Smithy","Village","Woodcutter","Workshop"],
+     },
+     {
+    	 name : "Big Money",
+    	 cards : ["Adventurer","Bureaucrat","Chancellor","Chapel","Feast","Laboratory","Market","Mine","Moneylender","Throne Room"],
+     },
+     {
+    	 name : "Interaction",
+    	 cards : ["Bureaucrat","Chancellor","Council Room","Festival","Library","Militia","Moat","Spy","Thief","Village"],
+     },
+     {
+    	 name : "Size Distortion",
+    	 cards : ["Cellar","Chapel","Feast","Gardens","Laboratory","Thief","Village","Witch","Woodcutter","Workshop"],
+     },
+     {
+    	 name : "Village Square",
+    	 cards : ["Bureaucrat","Cellar","Festival","Library","Market","Remodel","Smithy","Throne Room","Village","Woodcutter"],
+     },
+     {
+    	 name : "High Seas",
+    	 cards : ["Bazaar","Caravan","Embargo","Explorer","Haven","Island","Lookout","Pirate Ship","Smugglers","Wharf"],
+     },
+     {
+    	 name : "Buried Treasure",
+    	 cards : ["Ambassador","Cutpurse","Fishing Village","Lighthouse","Outpost","Pearl Diver","Tactician","Treasure Map","Warehouse","Wharf"],
+     },
+     {
+    	 name : "Shipwrecks",
+    	 cards : ["Ghost Ship","Merchant Ship","Native Village","Navigator","Pearl Diver","Salvager","Sea Hag","Smugglers","Treasury","Warehouse"],
+     },
+     {
+    	 name : "Reach for Tomorrow",
+    	 cards : ["Adventurer","Cellar","Council Room","Cutpurse","Ghost Ship","Lookout","Sea Hag","Spy","Treasure Map","Village"],
+     },
+     {
+    	 name : "Repetition",
+    	 cards : ["Caravan","Chancellor","Explorer","Festival","Militia","Outpost","Pearl Diver","Pirate Ship","Treasury","Workshop"],
+     },
+     {
+    	 name : "Give and Take",
+    	 cards : ["Ambassador","Fishing Village","Haven","Island","Library","Market","Moneylender","Salvager","Smugglers","Witch"],
      },
 ];
 

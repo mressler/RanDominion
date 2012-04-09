@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html> 
+<html manifest="dominion.manifest"> 
 	<head> 
 	<title>RanDominion</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,12 +11,14 @@
 	<script src="jquery.js"></script>
 	<script src="jquery.mobile.js"></script>
 	<script src="dominionCards.js"></script>
-	<script src="test.js"></script>
+<!--	<script src="test.js"></script>-->
 	<script src="jquery.cookie.js"></script>
 </head> 
 <body> 
 
 <script>
+recommendedKingdoms.sort(sortAlphabetically);
+
 //Listen for any attempts to call changePage().
 $(document).bind( "pagebeforechange", function( e, data ) {
 
@@ -51,6 +53,7 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 });
 $( '#config' ).live( 'pagecreate', setConfigData );
 $( '#recommended' ).live( 'pagecreate', setRecommendedCounts);
+$( '#showKingdom' ).live( 'pagecreate', createShowKingdom);
 
 $(".persistChecked").live( 'change', function (e) {
 	var isChecked = this.checked;
@@ -118,7 +121,12 @@ function setConfigData() {
 	$("#kingdomSize-" + kingdomSize).attr("checked", "checked");
 	
 	var orderBy = $.cookie("orderBy") || "alphabetical";
-	$("#orderBy-" + orderBy).attr("checked", "checked");
+	$(".orderBy-" + orderBy).attr("checked", "checked");
+}
+
+function createShowKingdom() {
+	var orderBy = $.cookie("orderBy") || "alphabetical";
+	$(".orderBy-" + orderBy).attr("checked", "checked");
 }
 
 function setRecommendedCounts() {
@@ -271,6 +279,8 @@ function showRecommendedKingdom( urlObj, options ) {
 
 	// Enhance the listview we just injected.
 	$content.find( ":jqmData(role=listview)" ).listview();
+
+	options.dataUrl = urlObj.href;
 }
 </script>
 
@@ -360,13 +370,13 @@ function showRecommendedKingdom( urlObj, options ) {
 				<legend>Order by?</legend>
 				
 	     		<label for="orderBy-alphabetical">Alphabetical</label>
-				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='persistValue updateSortOrder' />
+				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='orderBy-alphabetical persistValue updateSortOrder' />
 				
 	     		<label for="orderBy-alphaWithSets">Alpha w/ Sets</label>
-				<input type="radio" name="orderBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='persistValue updateSortOrder' />
+				<input type="radio" name="orderBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='orderBy-alphaWithSets persistValue updateSortOrder' />
 				
 	     		<label for="orderBy-cost">Cost</label>
-				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='persistValue updateSortOrder' />
+				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='orderBy-cost persistValue updateSortOrder' />
 			</fieldset>
 		</div>	
 	</div><!-- /content -->
@@ -481,13 +491,13 @@ function showRecommendedKingdom( urlObj, options ) {
 				<legend>Order by?</legend>
 				
 	     		<label for="orderBy-alphabetical">Alphabetical</label>
-				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='persistValue updateSortOrder' />
+				<input type="radio" name="orderBy" id="orderBy-alphabetical" value="alphabetical" checked="checked" class='orderBy-alphabetical persistValue updateSortOrder' />
 				
 	     		<label for="orderBy-alphaWithSets">Alpha w/ Sets</label>
-				<input type="radio" name="orderBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='persistValue updateSortOrder' />
+				<input type="radio" name="orderBy" id="orderBy-alphaWithSets" value="alphaWithSets" class='orderBy-alphaWithSets persistValue updateSortOrder' />
 				
 	     		<label for="orderBy-cost">Cost</label>
-				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='persistValue updateSortOrder' />
+				<input type="radio" name="orderBy" id="orderBy-cost" value="cost" class='orderBy-cost persistValue updateSortOrder' />
 			</fieldset>
 		</div>	
 	</div><!-- /content -->
