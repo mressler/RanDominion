@@ -51,24 +51,26 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 		}
 	}
 });
-$( '#config' ).live( 'pagecreate', setConfigData );
-$( '#recommended' ).live( 'pagecreate', setRecommendedCounts);
-$( '#showKingdom' ).live( 'pagecreate', setOrderBy);
-$( '#random' ).live( 'pagecreate', setOrderBy);
+$( document ).bind( "pageinit", function( e ) {
+	$( '#config' ).on( 'pagecreate', setConfigData );
+	$( '#recommended' ).on( 'pagecreate', setRecommendedCounts);
+	$( '#showKingdom' ).on( 'pagecreate', setOrderBy);
+	$( '#random' ).on( 'pagecreate', setOrderBy);
+});
 
-$(".persistChecked").live( 'change', function (e) {
+$(document).on( 'change', ".persistChecked", function (e) {
 	var isChecked = this.checked;
 	$.cookie($(this).attr("id"), isChecked ? "true" : null);
 });
 
-$(".persistValue").live( 'change', function (e) {
+$(document).on( 'change', ".persistValue", function (e) {
 	var name = $(this).attr("name");
 	if (name == "orderKingdomBy") {
 		name = "orderBy";
 	}
 	$.cookie(name, $(this).val());
 });
-$(".updateSortOrder.persistValue").live( 'change', function (e) {
+$(document).on( 'change', ".updateSortOrder.persistValue", function (e) {
 	var orderBy = $(this).val();
 	var $page = $(this).closest( ".ui-page" )
 	var $content = $page.find( ".randomCards" );
@@ -78,8 +80,6 @@ $(".updateSortOrder.persistValue").live( 'change', function (e) {
 	$content.html(markup);
 
 	$content.find(":jqmData(role=listview)").listview();
-
-	$.mobile.fixedToolbars.show(true);
 });
 
 function getCardList(selectedCards, orderBy) {
@@ -288,7 +288,7 @@ function showRecommendedKingdom( urlObj, options ) {
 
 <div data-role="page" id="config">
 
-	<div data-role="header">
+	<div data-role="header" data-position="fixed">
 		<h1>RanDominion!</h1>
 	</div><!-- /header -->
 
@@ -297,28 +297,28 @@ function showRecommendedKingdom( urlObj, options ) {
 			<fieldset data-role='controlgroup' id='setContainer'>
 				<legend>Which sets do you own?</legend>
 				<label for='set-1'>Basic</label>
-				<input type='checkbox' id='set-1' class='persistChecked' />
+				<input type='checkbox' id='set-1' class="persistChecked"/>
 				
 				<label for='set-2'>Promo</label>
-				<input type='checkbox' id='set-2' class='persistChecked' />
+				<input type='checkbox' id='set-2' class="persistChecked"/>
 				
 				<label for='set-3'>Intrigue</label>
-				<input type='checkbox' id='set-3' class='persistChecked' />
+				<input type='checkbox' id='set-3' class="persistChecked"/>
 				
 				<label for='set-4'>Seaside</label>
-				<input type='checkbox' id='set-4' class='persistChecked' />
+				<input type='checkbox' id='set-4' class="persistChecked"/>
 				
 				<label for='set-5'>Alchemy</label>
-				<input type='checkbox' id='set-5' class='persistChecked' />
+				<input type='checkbox' id='set-5' class="persistChecked"/>
 				
 				<label for='set-6'>Prosperity</label>
-				<input type='checkbox' id='set-6' class='persistChecked' />
+				<input type='checkbox' id='set-6' class="persistChecked"/>
 				
 				<label for='set-7'>Cornucopia</label>
-				<input type='checkbox' id='set-7' class='persistChecked' />
+				<input type='checkbox' id='set-7' class="persistChecked"/>
 				
 				<label for='set-8'>Hinterlands</label>
-				<input type='checkbox' id='set-8' class='persistChecked' />
+				<input type='checkbox' id='set-8' class="persistChecked"/>
 			</fieldset>
 		</div>
 		<div data-role="fieldcontain">
@@ -345,7 +345,7 @@ function showRecommendedKingdom( urlObj, options ) {
 		
 	</div><!-- /content -->
 	
-	<div data-role="footer">		
+	<div data-role="footer" data-position="fixed">		
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#" data-icon="grid" class="ui-btn-active">Random</a></li>
@@ -358,7 +358,7 @@ function showRecommendedKingdom( urlObj, options ) {
 
 <div data-role="page" id="random">
 
-	<div data-role="header">
+	<div data-role="header" data-position="fixed">
 		<a href="#config" data-icon="back" data-rel="back">Back</a>
 		<a href="#random" data-icon="refresh" data-iconpos="right">Refresh</a>
 		<h1>Random</h1>
@@ -383,7 +383,7 @@ function showRecommendedKingdom( urlObj, options ) {
 		</div>	
 	</div><!-- /content -->
 	
-	<div data-role="footer">		
+	<div data-role="footer" data-position="fixed">		
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#config" data-icon="grid" class="ui-btn-active">Random</a></li>
@@ -396,7 +396,7 @@ function showRecommendedKingdom( urlObj, options ) {
 
 <div data-role="page" id="recommended">
 
-	<div data-role="header">
+	<div data-role="header" data-position="fixed">
 		<h1>Recommended Sets</h1>
 	</div><!-- /header -->
 
@@ -414,7 +414,7 @@ function showRecommendedKingdom( urlObj, options ) {
 		</ul>
 	</div><!-- /content -->
 	
-	<div data-role="footer">		
+	<div data-role="footer" data-position="fixed">		
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#config" data-icon="grid">Random</a></li>
@@ -427,7 +427,7 @@ function showRecommendedKingdom( urlObj, options ) {
 
 <div data-role="page" id="kingdomSelect">
 
-	<div data-role="header">
+	<div data-role="header" data-position="fixed">
 		<a href="#config" data-icon="back" data-rel="back">Back</a>
 		<h1>RanDominion</h1>
 	</div><!-- /header -->
@@ -446,7 +446,7 @@ function showRecommendedKingdom( urlObj, options ) {
 		</ul>
 	</div><!-- /content -->
 	
-	<div data-role="footer">		
+	<div data-role="footer" data-position="fixed">		
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#config" data-icon="grid">Random</a></li>
@@ -459,7 +459,7 @@ function showRecommendedKingdom( urlObj, options ) {
 
 <div data-role="page" id="displayKingdoms">
 
-	<div data-role="header">
+	<div data-role="header" data-position="fixed">
 		<a href="#config" data-icon="back" data-rel="back">Back</a>
 		<h1>Kingdoms</h1>
 	</div><!-- /header -->
@@ -467,7 +467,7 @@ function showRecommendedKingdom( urlObj, options ) {
 	<div data-role="content">
 	</div><!-- /content -->
 	
-	<div data-role="footer">		
+	<div data-role="footer" data-position="fixed">		
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#config" data-icon="grid">Random</a></li>
@@ -480,7 +480,7 @@ function showRecommendedKingdom( urlObj, options ) {
 
 <div data-role="page" id="showKingdom">
 
-	<div data-role="header">
+	<div data-role="header" data-position="fixed">
 		<a href="#config" data-icon="back" data-rel="back">Back</a>
 		<h1></h1>
 	</div><!-- /header -->
@@ -504,7 +504,7 @@ function showRecommendedKingdom( urlObj, options ) {
 		</div>	
 	</div><!-- /content -->
 	
-	<div data-role="footer">		
+	<div data-role="footer" data-position="fixed">		
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#config" data-icon="grid" class="ui-btn-active">Random</a></li>
