@@ -49,12 +49,10 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 		}
 	}
 });
-$( document ).bind( "pageinit", function( e ) {
-	$( '#recommended' ).on( 'pagecreate', setRecommendedCounts);
-	$( '#showKingdom' ).on( 'pagecreate', setOrderBy);
-	$( '#random' ).on( 'pagecreate', setOrderBy);
-});
 
+$( document ).on( 'pagecreate', '#recommended', setRecommendedCounts);
+$( document ).on( 'pagecreate', '#showKingdom', setOrderBy);
+$( document ).on( 'pagecreate', '#random', setOrderBy);
 $( document ).on( 'pagecreate', '#config', setConfigData);
 
 $(document).on( 'change', ".persistChecked", function (e) {
@@ -138,12 +136,16 @@ function setOrderBy() {
 }
 
 function setRecommendedCounts() {
-	$("#set-0-count").html(recommendedKingdoms.length);
+	var $listview = $("#recommended").find( ":jqmData(role=listview)" );
+	var markup = "<li><a href='#displayKingdoms'>All<span class='ui-li-count'>" + recommendedKingdoms.length + "</span></a></li>";
 	for (var i in sets) {
-		if (recommendedBySet[i] != undefined) {
-			$("#set-" + i + "-count").html(recommendedBySet[i].length);
-		}
+		var count = recommendedBySet[i] != undefined ? recommendedBySet[i].length : 0;
+		markup += "<li><a href='#kingdomSelect?set=" + i + "'>" + sets[i].name + "<span class='ui-li-count'>" + count + "</span></a></li>";
 	}
+	
+	$listview.html(markup);
+	
+	$listview.listview();
 }
 
 function cardAllowed(someCard) {
@@ -304,27 +306,6 @@ function showRecommendedKingdom( urlObj, options ) {
 				<legend>Which sets do you own?</legend>
 				<label for='set-1'>Basic</label>
 				<input type='checkbox' id='set-1' class="persistChecked"/>
-				
-				<label for='set-2'>Promo</label>
-				<input type='checkbox' id='set-2' class="persistChecked"/>
-				
-				<label for='set-3'>Intrigue</label>
-				<input type='checkbox' id='set-3' class="persistChecked"/>
-				
-				<label for='set-4'>Seaside</label>
-				<input type='checkbox' id='set-4' class="persistChecked"/>
-				
-				<label for='set-5'>Alchemy</label>
-				<input type='checkbox' id='set-5' class="persistChecked"/>
-				
-				<label for='set-6'>Prosperity</label>
-				<input type='checkbox' id='set-6' class="persistChecked"/>
-				
-				<label for='set-7'>Cornucopia</label>
-				<input type='checkbox' id='set-7' class="persistChecked"/>
-				
-				<label for='set-8'>Hinterlands</label>
-				<input type='checkbox' id='set-8' class="persistChecked"/>
 			</fieldset>
 		</div>
 		<div data-role="fieldcontain">
@@ -408,15 +389,8 @@ function showRecommendedKingdom( urlObj, options ) {
 
 	<div data-role="content">	
 		<ul data-role="listview">
-			<li><a href="#displayKingdoms">All<span class='ui-li-count' id="set-0-count">0</span></a></li>
-			<li><a href="#kingdomSelect?set=1">Basic<span class='ui-li-count' id="set-1-count">0</span></a></li>
-			<li><a href="#kingdomSelect?set=3">Intrigue<span class='ui-li-count' id="set-3-count">0</span></a></li>
-			<li><a href="#kingdomSelect?set=4">Seaside<span class='ui-li-count' id="set-4-count">0</span></a></li>
-			<li><a href="#kingdomSelect?set=5">Alchemy<span class='ui-li-count' id="set-5-count">0</span></a></li>
-			<li><a href="#kingdomSelect?set=6">Prosperity<span class='ui-li-count' id="set-6-count">0</span></a></li>
-			<li><a href="#kingdomSelect?set=7">Cornucopia<span class='ui-li-count' id="set-7-count">0</span></a></li>
-			<li><a href="#kingdomSelect?set=8">Hinterlands<span class='ui-li-count' id="set-8-count">0</span></a></li>
-			<li><a href="#kingdomSelect?set=2">Promo<span class='ui-li-count' id="set-2-count">0</span></a></li>
+			<li><a href="#displayKingdoms">All<span class='ui-li-count'>0</span></a></li>
+			<li><a href="#kingdomSelect?set=1">Basic<span class='ui-li-count'>0</span></a></li>
 		</ul>
 	</div><!-- /content -->
 	
@@ -442,13 +416,15 @@ function showRecommendedKingdom( urlObj, options ) {
 		<ul data-role="listview">
 			<li id="refine-0"><a href="#displayKingdoms?set=0">All<span class='ui-li-count' id="refine-0-count">0</span></a></li>
 			<li id="refine-1"><a href="#displayKingdoms?set=1">Basic<span class='ui-li-count' id="refine-1-count">0</span></a></li>
+			<li id="refine-2"><a href="#displayKingdoms?set=2">Promo<span class='ui-li-count' id="refine-2-count">0</span></a></li>
 			<li id="refine-3"><a href="#displayKingdoms?set=3">Intrigue<span class='ui-li-count' id="refine-3-count">0</span></a></li>
 			<li id="refine-4"><a href="#displayKingdoms?set=4">Seaside<span class='ui-li-count' id="refine-4-count">0</span></a></li>
 			<li id="refine-5"><a href="#displayKingdoms?set=5">Alchemy<span class='ui-li-count' id="refine-5-count">0</span></a></li>
 			<li id="refine-6"><a href="#displayKingdoms?set=6">Prosperity<span class='ui-li-count' id="refine-6-count">0</span></a></li>
 			<li id="refine-7"><a href="#displayKingdoms?set=7">Cornucopia<span class='ui-li-count' id="refine-7-count">0</span></a></li>
 			<li id="refine-8"><a href="#displayKingdoms?set=8">Hinterlands<span class='ui-li-count' id="refine-8-count">0</span></a></li>
-			<li id="refine-2"><a href="#displayKingdoms?set=2">Promo<span class='ui-li-count' id="refine-2-count">0</span></a></li>
+			<li id="refine-7"><a href="#displayKingdoms?set=9">Dark Ages<span class='ui-li-count' id="refine-9-count">0</span></a></li>
+			<li id="refine-8"><a href="#displayKingdoms?set=10">Guilds<span class='ui-li-count' id="refine-10-count">0</span></a></li>
 		</ul>
 	</div><!-- /content -->
 	
