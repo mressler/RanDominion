@@ -57,7 +57,12 @@ $( document ).on( 'pagecreate', '#config', setConfigData);
 
 $(document).on( 'change', ".persistChecked", function (e) {
 	var isChecked = this.checked;
-	localStorage["RanDominion." + $(this).attr("id")] = isChecked ? "true" : null;
+	if (isChecked) {
+		localStorage["RanDominion." + $(this).attr("id")] = "true";
+	} else {
+		localStorage.removeItem("RanDominion." + $(this).attr("id"));
+	}
+	
 });
 
 $(document).on( 'change', ".persistValue", function (e) {
@@ -100,7 +105,7 @@ function getCardList(selectedCards, orderBy) {
 			currentSetId = card.setId;
 			markup += "<li data-role='list-divider'>" + sets[currentSetId].name + "</li>";
 		}
-		markup += "<li>" + card.name + "<span class='ui-li-count'>" + card.cost + (card.potion ? " + P" : "") + "</span></li>";
+		markup += "<li>" + card.name + "<span class='ui-li-count'>" + card.cost + (card.potion ? " + P" : "") + (card.overpay ? "+" : "") + "</span></li>";
 	}
 
 	markup += "</ul>";
