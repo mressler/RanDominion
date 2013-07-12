@@ -1976,6 +1976,70 @@ var recommendedKingdoms = [
     	 name : "Give and Take",
     	 cards : ["Ambassador","Fishing Village","Haven","Island","Library","Market","Moneylender","Salvager","Smugglers","Witch"],
      },
+     {
+    	 name : "Grim Parade",
+    	 cards : ["Armory", "Band of Misfits", "Catacombs", "Cultist", "Forager", "Fortress", "Knights", "Market Square", "Procession", "Hunting Grounds"],
+     },
+     {
+    	 name : "Playing Chess With Death",
+    	 cards : ["Bandit Camp", "Graverobber", "Junk Dealer", "Mystic", "Pillage", "Rats", "Sage", "Scavenger", "Storeroom", "Vagrant"],
+     },
+     {
+    	 name : "High and Low",
+    	 cards : ["Hermit", "Hunting Grounds", "Mystic", "Poor House", "Wandering Minstrel", "Cellar", "Moneylender", "Throne Room", "Witch", "Workshop"],
+     },
+     {
+    	 name : "Chivalry and Revelry",
+    	 cards : ["Altar", "Knights", "Rats", "Scavenger", "Squire", "Festival", "Gardens", "Laboratory", "Library", "Remodel"],
+     },
+     {
+    	 name : "Prophecy",
+    	 cards : ["Armory", "Ironmonger", "Mystic", "Rebuild", "Vagrant", "Baron", "Conspirator", "Great Hall", "Nobles", "Wishing Well"],
+     },
+     {
+    	 name : "Invasion",
+    	 cards : ["Beggar", "Marauder", "Rogue", "Squire", "Urchin", "Harem", "Mining Village", "Swindler", "Torturer", "Upgrade"],
+     },
+     {
+    	 name : "Watery Graves",
+    	 cards : ["Count", "Graverobber", "Hermit", "Scavenger", "Urchin", "Native Village", "Pirate Ship", "Salvager", "Treasure Map", "Treasury"],
+     },
+     {
+    	 name : "Peasants",
+    	 cards : ["Death Cart", "Feodum", "Poor House", "Urchin", "Vagrant", "Fishing Village", "Haven", "Island", "Lookout", "Warehouse"],
+     },
+     {
+    	 name : "Infestations",
+    	 cards : ["Armory", "Cultist", "Feodum", "Market Square", "Rats", "Wandering Minstrel", "Apprentice", "Scrying Pool", "Transmute", "Vineyard"],
+     },
+     {
+    	 name : "Lamentations",
+    	 cards : ["Beggar", "Catacombs", "Counterfeit", "Forager", "Ironmonger", "Pillage", "Apothecary", "Golem", "Herbalist", "University"],
+     },
+     {
+    	 name : "One Man's Trash",
+    	 cards : ["Counterfeit", "Forager", "Graverobber", "Market Square", "Rogue", "City", "Grand Market", "Monument", "Talisman", "Venture"],
+     },
+     {
+    	 name : "Honor Among Thieves",
+    	 cards : ["Bandit Camp", "Procession", "Rebuild", "Rogue", "Squire", "Forge", "Hoard", "Peddler", "Quarry", "Watchtower"],
+     },
+     {
+    	 name : "Dark Carnival",
+    	 cards : ["Band of Misfits", "Cultist", "Fortress", "Hermit", "Junk Dealer", "Knights", "Fairgrounds", "Hamlet", "Horn of Plenty", "Menagerie"],
+     },
+     {
+    	 name : "To the Victor",
+    	 cards : ["Bandit Camp", "Counterfeit", "Death Cart", "Marauder", "Pillage", "Sage", "Harvest", "Hunting Party", "Remake", "Tournament"],
+     },
+     {
+    	 name : "Far From Home",
+    	 cards : ["Beggar", "Count", "Feodum", "Marauder", "Wandering Minstrel", "Cartographer", "Develop", "Embassy", "Fool's Gold", "Haggler"],
+     },
+     {
+    	 name : "Expeditions",
+    	 cards : ["Altar", "Catacombs", "Ironmonger", "Poor House", "Storeroom", "Crossroads", "Farmland", "Highway", "Spice Merchant", "Tunnel"],
+     },
 ];
 
 var recommendedBySet = {};
